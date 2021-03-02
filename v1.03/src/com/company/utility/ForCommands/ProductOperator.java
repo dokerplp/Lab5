@@ -1,10 +1,11 @@
-package com.company.utility;
+package com.company.utility.ForCommands;
 
 import com.company.Data.OrganizationType;
 import com.company.Data.Product;
 import com.company.Data.UnitOfMeasure;
-import com.company.RequestsQueue;
 import com.company.exceptions.IncorrectDataException;
+import com.company.utility.ForData.DataChecker;
+import com.company.utility.ForData.DataOperator;
 
 import java.util.List;
 

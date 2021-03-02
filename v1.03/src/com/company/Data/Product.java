@@ -1,6 +1,6 @@
 package com.company.Data;
 
-import com.company.utility.DataChecker;
+import com.company.utility.ForData.DataChecker;
 
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * This class has information about product
  */
-public class Product{
+public class Product implements Comparable<Product>{
 
     /**
      * Time of last collection save, its getter and setter
@@ -183,4 +183,13 @@ public class Product{
 
     }
 
+    /**
+     * This method realize List sort by price
+     * @param o - Another product
+     * @return difference
+     */
+    @Override
+    public int compareTo(Product o) {
+        return (int)(getPrice() - o.getPrice());
+    }
 }

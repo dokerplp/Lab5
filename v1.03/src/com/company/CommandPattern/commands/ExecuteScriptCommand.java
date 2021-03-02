@@ -1,22 +1,25 @@
 package com.company.CommandPattern.commands;
 
 import com.company.CommandPattern.Command;
-import com.company.RequestsQueue;
+import com.company.exceptions.InfinityRecursionException;
+import com.company.utility.ForCommands.RequestsQueue;
 import com.company.exceptions.CantReadException;
 import com.company.exceptions.FileDoesNotExistException;
 import com.company.exceptions.IsDirException;
-import com.company.exceptions.NotJsonException;
 
 import java.io.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
+/**
+ * Command execute user's script
+ */
 public class ExecuteScriptCommand implements Command {
 
-
+    /**
+     * Realization of this command
+     * @param path - script path
+     */
     private void ExecuteScriptRealization(String path){
         File script = new File(path);
         try {
@@ -30,6 +33,8 @@ public class ExecuteScriptCommand implements Command {
             while (requests.hasNext()) list.add(requests.next());
             RequestsQueue.pushAll(list);
 
+            InfinityRecursionException.newRec();
+
         } catch (FileDoesNotExistException e){
             System.out.println("Скрипт не сработал - файла не существует");
         } catch (IsDirException e){
@@ -41,6 +46,9 @@ public class ExecuteScriptCommand implements Command {
         }
     }
 
+    /**
+     * Execution of this command
+     */
     @Override
     public void execute(String Argument) {
         if (Argument == null) System.out.println("Не хватает аргумета (Адрес скрипта)");

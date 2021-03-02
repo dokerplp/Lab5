@@ -1,10 +1,9 @@
-package com.company.utility;
+package com.company.utility.ForCommands;
 
 import com.company.Data.Address;
 import com.company.Data.Coordinates;
 import com.company.Data.Organization;
 import com.company.Data.Product;
-import com.company.RequestsQueue;
 import com.company.exceptions.IncorrectDataException;
 
 import java.util.List;

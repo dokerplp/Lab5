@@ -1,9 +1,8 @@
-package com.company;
+package com.company.Run;
 
-import com.company.CommandPattern.CommandsOperator;
-import com.company.CommandPattern.User;
-import com.company.Data.Product;
-import com.company.utility.*;
+import com.company.exceptions.InfinityRecursionException;
+import com.company.utility.ForCommands.CommandRunner;
+import com.company.utility.ForCommands.RequestsQueue;
 import com.company.utility.JSON.JSON_Breaker;
 
 import java.util.*;
@@ -20,12 +19,14 @@ public class Client {
 
         try{
             JSON_Breaker breaker = new JSON_Breaker(CommandRunner.getProducts());
+            Collections.sort(CommandRunner.getBase().getBase());
         }catch (Exception e){
             System.out.println("Не удалось загрузить коллекцию из файла");
         }
 
         while (true){
             RequestsQueue.status = true;
+            InfinityRecursionException.Putin();
             String push = CommandRunner.getData().getSTRING();
             if (push != null) RequestsQueue.pushOne(push);
             while (RequestsQueue.getElemntAmount() != 0) CommandRunner.run(RequestsQueue.pollOne());

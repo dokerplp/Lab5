@@ -1,4 +1,4 @@
-package com.company.utility;
+package com.company.utility.ForData;
 
 import com.company.Data.Product;
 import java.util.List;

@@ -2,8 +2,8 @@ package com.company.CommandPattern;
 
 import com.company.Data.Product;
 import com.company.CommandPattern.commands.*;
-import com.company.utility.DataBase;
-import com.company.utility.DataOperator;
+import com.company.utility.ForData.DataBase;
+import com.company.utility.ForData.DataOperator;
 
 import java.util.List;
 

@@ -2,8 +2,8 @@ package com.company.CommandPattern.commands;
 
 import com.company.CommandPattern.Command;
 import com.company.Data.Product;
-import com.company.utility.CreateNewProduct;
-import com.company.utility.DataOperator;
+import com.company.utility.ForCommands.CreateNewProduct;
+import com.company.utility.ForData.DataOperator;
 import com.company.exceptions.IncorrectDataException;
 
 import java.util.List;

@@ -1,7 +1,7 @@
-package com.company.utility;
+package com.company.utility.ForData;
 
-import com.company.RequestsQueue;
 import com.company.exceptions.IncorrectDataException;
+import com.company.utility.ForCommands.RequestsQueue;
 
 import java.util.Scanner;
 

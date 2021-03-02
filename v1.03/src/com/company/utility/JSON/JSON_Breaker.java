@@ -6,7 +6,7 @@ import java.util.*;
 import java.io.*;
 
 import com.company.Data.*;
-import com.company.utility.DataOperator;
+import com.company.utility.ForData.DataOperator;
 import com.company.exceptions.*;
 import com.company.exceptions.IncorrectDataException;
 import com.fasterxml.jackson.databind.*;

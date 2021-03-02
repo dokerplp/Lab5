@@ -1,6 +1,6 @@
 package com.company.Data;
 
-import com.company.utility.DataChecker;
+import com.company.utility.ForData.DataChecker;
 
 import java.util.List;
 

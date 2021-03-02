@@ -1,4 +1,4 @@
-package com.company.utility;
+package com.company.utility.ForData;
 
 /**
  * Handler of the entered request
