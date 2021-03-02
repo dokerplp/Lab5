@@ -1,6 +1,7 @@
 package com.company.CommandPattern.commands;
 
 import com.company.CommandPattern.Command;
+import com.company.RequestsQueue;
 import com.company.exceptions.CantReadException;
 import com.company.exceptions.FileDoesNotExistException;
 import com.company.exceptions.IsDirException;
@@ -9,6 +10,8 @@ import com.company.exceptions.NotJsonException;
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ExecuteScriptCommand implements Command {
@@ -21,10 +24,11 @@ public class ExecuteScriptCommand implements Command {
             if (script.isDirectory()) throw new IsDirException();
             if (!script.canRead()) throw new CantReadException();
 
-//            Scanner in = new Scanner(System.in);
-//            Path newPath = Paths.get(path);
-//            Scanner scanner = new Scanner(newPath);
-//            while (scanner.hasNext()) in.next(scanner.next());
+            RequestsQueue.status = false;
+            Scanner requests = new Scanner(script);
+            List<String> list = new ArrayList<>();
+            while (requests.hasNext()) list.add(requests.next());
+            RequestsQueue.pushAll(list);
 
         } catch (FileDoesNotExistException e){
             System.out.println("Скрипт не сработал - файла не существует");
@@ -32,6 +36,8 @@ public class ExecuteScriptCommand implements Command {
             System.out.println("Скрипт не сработал - файла дириктория");
         } catch (CantReadException e){
             System.out.println("Скрипт не сработал - нет прав на чтение файла");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
     }
 

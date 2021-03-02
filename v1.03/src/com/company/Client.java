@@ -25,8 +25,10 @@ public class Client {
         }
 
         while (true){
-            String line = CommandRunner.getData().getSTRING();
-            CommandRunner.run(line);
+            RequestsQueue.status = true;
+            String push = CommandRunner.getData().getSTRING();
+            if (push != null) RequestsQueue.pushOne(push);
+            while (RequestsQueue.getElemntAmount() != 0) CommandRunner.run(RequestsQueue.pollOne());
         }
     }
 }

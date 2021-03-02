@@ -1,5 +1,6 @@
 package com.company.utility;
 
+import com.company.RequestsQueue;
 import com.company.exceptions.IncorrectDataException;
 
 import java.util.Scanner;
@@ -68,8 +69,9 @@ public class DataOperator {
      * @return string
      */
     public String getSTRING(){
-        String data = console.nextLine();
-        if (data.equals("")) return null;
+        if (RequestsQueue.getElemntAmount() == 0) RequestsQueue.pushOne(console.nextLine());
+        String data = RequestsQueue.pollOne();
+        if (data.trim().equals("") || data.trim().equals("null")) return null;
         else return data;
     }
 
@@ -83,7 +85,7 @@ public class DataOperator {
         try {
             return Integer.parseInt(line);
         } catch (Exception e){
-            System.out.println("Неверный тип аргумента");
+            if (RequestsQueue.status) System.out.println("Неверный тип аргумента");
             throw new IncorrectDataException();
         }
     }
@@ -97,7 +99,7 @@ public class DataOperator {
         try {
             return Float.parseFloat(line);
         } catch (Exception e){
-            System.out.println("Неверный тип аргумента");
+            if (RequestsQueue.status) System.out.println("Неверный тип аргумента");
             throw new IncorrectDataException();
         }
     }
@@ -111,7 +113,7 @@ public class DataOperator {
         try {
             return Long.parseLong(line);
         } catch (Exception e){
-            System.out.println("Неверный тип аргумента");
+            if (RequestsQueue.status) System.out.println("Неверный тип аргумента");
             throw new IncorrectDataException();
         }
     }

@@ -1,5 +1,7 @@
 package com.company.exceptions;
 
+import com.company.RequestsQueue;
+
 /**
  * Throws if you entered wrong data
  */
@@ -9,11 +11,11 @@ public class IncorrectDataException extends RuntimeException{
 
     public IncorrectDataException(String logs){
         this.logs = logs;
-        System.out.println("Ошибка данных..." + logs);
+        if (RequestsQueue.status) System.out.println("Ошибка данных..." + logs);
     }
     public IncorrectDataException(){
         this.logs = "";
-        System.out.println("Ошибка данных...");
+        if (RequestsQueue.status) System.out.println("Ошибка данных...");
     }
 
     @Override

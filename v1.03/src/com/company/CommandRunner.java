@@ -26,8 +26,10 @@ public class CommandRunner {
     private final static CommandsOperator operator = new CommandsOperator(user, base, data);
 
     public static void run(String line){
-        String command = DataProcessor.getCommand(line);
-        String argument = DataProcessor.getArgument(line);
-        operator.execute(command, argument);
+        if (line != null) {
+            String command = DataProcessor.getCommand(line);
+            String argument = DataProcessor.getArgument(line);
+            operator.execute(command, argument);
+        }
     }
 }

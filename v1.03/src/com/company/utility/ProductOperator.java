@@ -3,6 +3,7 @@ package com.company.utility;
 import com.company.Data.OrganizationType;
 import com.company.Data.Product;
 import com.company.Data.UnitOfMeasure;
+import com.company.RequestsQueue;
 import com.company.exceptions.IncorrectDataException;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public class ProductOperator extends DataOperator {
      * @throws IncorrectDataException if it was not
      */
     public String getName() throws IncorrectDataException{
-        System.out.print("Название продукта: ");
+        if (RequestsQueue.status) System.out.print("Название продукта: ");
         String name = getSTRING();
         if (DataChecker.NotNullCheck(name) && DataChecker.NotEmptyLineCheck(name)) return name;
         else throw new IncorrectDataException("Название продукта - непустая строка");
@@ -40,7 +41,7 @@ public class ProductOperator extends DataOperator {
      * @throws IncorrectDataException if it was not
      */
     public Float getX() throws IncorrectDataException{
-        System.out.print("     X: ");
+        if (RequestsQueue.status) System.out.print("     X: ");
         Float X = getFLOAT();
         if (DataChecker.NotNullCheck(X)) return X;
         else throw new IncorrectDataException("X - дробное число");
@@ -52,7 +53,7 @@ public class ProductOperator extends DataOperator {
      * @throws IncorrectDataException if it was not
      */
     public Integer getY() throws IncorrectDataException{
-        System.out.print("     Y: ");
+        if (RequestsQueue.status) System.out.print("     Y: ");
         Integer Y = getINT();
         if (!DataChecker.NotNullCheck(Y)) throw new IncorrectDataException("Y - целое число");
         else {
@@ -67,7 +68,7 @@ public class ProductOperator extends DataOperator {
      * @throws IncorrectDataException if it was not
      */
     public Long getPrice() throws IncorrectDataException{
-        System.out.print("Цена: ");
+        if (RequestsQueue.status) System.out.print("Цена: ");
         Long price = getLONG();
         if (!DataChecker.NotNullCheck(price)) throw new IncorrectDataException("Цена - целое число");
         else {
@@ -82,7 +83,7 @@ public class ProductOperator extends DataOperator {
      * @throws IncorrectDataException if it was not
      */
     public String getPartNumber(){
-        System.out.print("Артикул: ");
+        if (RequestsQueue.status) System.out.print("Артикул: ");
         String partNumber = getSTRING();
         if (partNumber == null) return "";
         else return partNumber;
@@ -94,7 +95,7 @@ public class ProductOperator extends DataOperator {
      * @throws IncorrectDataException if it was not
      */
     public Float getMCost() throws IncorrectDataException{
-        System.out.print("Цена производства: ");
+        if (RequestsQueue.status) System.out.print("Цена производства: ");
         Float cost = getFLOAT();
         if (!DataChecker.NotNullCheck(cost)) throw new IncorrectDataException("Цена производства - дробное число");
         else {
@@ -109,7 +110,7 @@ public class ProductOperator extends DataOperator {
      * @throws IncorrectDataException if it was not
      */
     public UnitOfMeasure getMeasure() throws IncorrectDataException{
-        System.out.print("Выберите единицы измерения (1 - Метры, 2 - Сантиметры, 3 - Литры): ");
+        if (RequestsQueue.status) System.out.print("Выберите единицы измерения (1 - Метры, 2 - Сантиметры, 3 - Литры): ");
         String switcher = getSTRING();
         if (switcher == null) throw new IncorrectDataException("Пожалуйста, введите 1, 2 или 3");
         else{
@@ -146,7 +147,7 @@ public class ProductOperator extends DataOperator {
      * @throws IncorrectDataException if it was not
      */
     public String getOrgName() throws IncorrectDataException{
-        System.out.print("     Название компании: ");
+        if (RequestsQueue.status) System.out.print("     Название компании: ");
         String name = getSTRING();
         if (DataChecker.NotNullCheck(name) && DataChecker.NotEmptyLineCheck(name)) return name;
         else throw new IncorrectDataException("Название компании - непустая строка");
@@ -158,7 +159,7 @@ public class ProductOperator extends DataOperator {
      * @throws IncorrectDataException if it was not
      */
     public Long getEcount() throws IncorrectDataException{
-        System.out.print("     Количество работников: ");
+        if (RequestsQueue.status) System.out.print("     Количество работников: ");
         Long count = getLONG();
         if (!DataChecker.NotNullCheck(count)) throw new IncorrectDataException("Количество работников - целое число");
         else {
@@ -173,7 +174,7 @@ public class ProductOperator extends DataOperator {
      * @throws IncorrectDataException if it was not
      */
     public OrganizationType getType() throws IncorrectDataException{
-        System.out.print("     Тип компании: (1 - Общественная, 2 - Правительственная, 3 - ЗАО): ");
+        if (RequestsQueue.status) System.out.print("     Тип компании: (1 - Общественная, 2 - Правительственная, 3 - ЗАО): ");
         String switcher = getSTRING();
         if (switcher == null) throw new IncorrectDataException("Пожалуйста, введите 1, 2 или 3");
         else{
@@ -209,7 +210,7 @@ public class ProductOperator extends DataOperator {
      * @throws IncorrectDataException if it was not
      */
     public String getStreet() throws IncorrectDataException{
-        System.out.print("          Улица: ");
+        if (RequestsQueue.status) System.out.print("          Улица: ");
         String street = getSTRING();
         if (DataChecker.NotNullCheck(street)) return street;
         else throw new IncorrectDataException("Адресс - непустая строка");
@@ -220,7 +221,7 @@ public class ProductOperator extends DataOperator {
      * @throws IncorrectDataException if it was not
      */
     public String getZip() throws IncorrectDataException{
-        System.out.print("          Почтовый код: ");
+        if (RequestsQueue.status) System.out.print("          Почтовый код: ");
         String zip = getSTRING();
         if (zip == null) return "";
         else if (zip.length() <= 12) return zip;

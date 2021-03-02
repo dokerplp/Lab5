@@ -4,6 +4,7 @@ import com.company.Data.Address;
 import com.company.Data.Coordinates;
 import com.company.Data.Organization;
 import com.company.Data.Product;
+import com.company.RequestsQueue;
 import com.company.exceptions.IncorrectDataException;
 
 import java.util.List;
@@ -175,18 +176,18 @@ public class CreateNewProduct extends ProductOperator {
      */
     public Product HumanMode(){
         setName();
-        System.out.println("Координаты: ");
+        if (RequestsQueue.status) System.out.println("Координаты: ");
         setX();
         setY();
         setPrice();
         setPartNumber();
         setMCost();
         setMeasure();
-        System.out.println("Изготовитель: ");
+        if (RequestsQueue.status) System.out.println("Изготовитель: ");
         setOrgName();
         setEcount();
         setType();
-        System.out.println("     Адрес: ");
+        if (RequestsQueue.status) System.out.println("     Адрес: ");
         setStreet();
         setZip();
 
