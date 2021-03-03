@@ -11,9 +11,7 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>groupId</groupId>
-                <artifactId>Lab5</artifactId>
-                <version>1.3</version>
+
                 <configuration>
                     <archive>
                         <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
