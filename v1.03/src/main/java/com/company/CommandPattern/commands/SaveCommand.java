@@ -3,6 +3,8 @@ package com.company.CommandPattern.commands;
 import com.company.CommandPattern.Command;
 import com.company.Data.Product;
 import com.company.exceptions.*;
+import com.company.utility.ForCommands.CantWriteException;
+import com.company.utility.ForCommands.FileOperator;
 import com.company.utility.JSON.JSON_Builder;
 
 import java.io.PrintWriter;
@@ -47,13 +49,12 @@ public class SaveCommand implements Command {
     private String CheckFileOrCreateFile(){
         try {
             String path = System.getenv("LAB");
-            if (path == null) throw new EnvVarDoesNotExistException();
+            FileOperator.EnvExist(path);
             File DJEYSON = new File(path);
-            if (!DJEYSON.exists()) throw new FileDoesNotExistException();
-            if (DJEYSON.isDirectory()) throw new IsDirException();
-            String[] kostyl = path.split("\\.");
-            if (!kostyl[kostyl.length - 1].equals("json")) throw new NotJsonException();
-            if (!DJEYSON.canWrite()) throw new CantReadException();
+            FileOperator.FileExist(DJEYSON);
+            FileOperator.IsFile(DJEYSON);
+            FileOperator.IsJSON(path);
+            FileOperator.Writable(DJEYSON);
             return path;
         } catch (Exception e) {
             System.out.println("Возникли проблемы с исходным файлом\nНовый файл создан и сохранен в домашней дириктории");

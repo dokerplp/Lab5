@@ -6,10 +6,13 @@ import java.util.*;
 import java.io.*;
 
 import com.company.Data.*;
+import com.company.utility.ForCommands.FileOperator;
 import com.company.utility.ForData.DataOperator;
 import com.company.exceptions.*;
 import com.company.exceptions.IncorrectDataException;
 import com.fasterxml.jackson.databind.*;
+
+import javax.swing.*;
 
 
 /**
@@ -29,13 +32,12 @@ public class JSON_Breaker {
         this.products = products;
 
         String path = System.getenv("LAB");
-        if (path == null) throw new EnvVarDoesNotExistException();
+        FileOperator.EnvExist(path);
         File DJEYSON = new File(path);
-        if (!DJEYSON.exists()) throw new FileDoesNotExistException();
-        if (DJEYSON.isDirectory()) throw new IsDirException();
-        String[] kostyl = path.split("\\.");
-        if (!kostyl[kostyl.length - 1].equals("json")) throw new NotJsonException();
-        if (!DJEYSON.canRead()) throw new CantReadException();
+        FileOperator.FileExist(DJEYSON);
+        FileOperator.IsFile(DJEYSON);
+        FileOperator.IsJSON(path);
+        FileOperator.Readable(DJEYSON);
 
         Path newPath = Paths.get(path);
         Scanner scanner = new Scanner(newPath);

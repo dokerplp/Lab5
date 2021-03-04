@@ -2,10 +2,11 @@ package com.company.CommandPattern.commands;
 
 import com.company.CommandPattern.Command;
 import com.company.exceptions.InfinityRecursionException;
+import com.company.exceptions.IsFileException;
+import com.company.utility.ForCommands.FileOperator;
 import com.company.utility.ForCommands.RequestsQueue;
 import com.company.exceptions.CantReadException;
 import com.company.exceptions.FileDoesNotExistException;
-import com.company.exceptions.IsDirException;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -23,9 +24,9 @@ public class ExecuteScriptCommand implements Command {
     private void ExecuteScriptRealization(String path){
         File script = new File(path);
         try {
-            if (!script.exists()) throw new FileDoesNotExistException();
-            if (script.isDirectory()) throw new IsDirException();
-            if (!script.canRead()) throw new CantReadException();
+            FileOperator.FileExist(script);
+            FileOperator.IsFile(script);
+            FileOperator.Readable(script);
 
             RequestsQueue.status = false;
             Scanner requests = new Scanner(script);
@@ -37,7 +38,7 @@ public class ExecuteScriptCommand implements Command {
 
         } catch (FileDoesNotExistException e){
             System.out.println("Скрипт не сработал - файла не существует");
-        } catch (IsDirException e){
+        } catch (IsFileException e){
             System.out.println("Скрипт не сработал - путь ведет к дириктории, а не файлу");
         } catch (CantReadException e){
             System.out.println("Скрипт не сработал - нет прав на чтение файла");
