@@ -38,7 +38,7 @@ public class Client {
         while (true){
             RequestsQueue.status = true;
             InfinityRecursionException.Putin();
-            String push = CommandRunner.getData().getSTRING();
+            String push = data.getSTRING();
             if (push != null) RequestsQueue.pushOne(push);
             while (RequestsQueue.getElemntAmount() != 0) {
                 String line = RequestsQueue.pollOne();
