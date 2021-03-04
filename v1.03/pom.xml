@@ -26,7 +26,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.company.Run.Client</mainClass>
+                            <mainClass>com.company.run.Client</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
