@@ -3,6 +3,7 @@ package com.company.commandPattern.commands;
 import com.company.commandPattern.Command;
 import com.company.data.Product;
 import com.company.utility.forCommands.CreateNewProduct;
+import com.company.utility.forData.DataBase;
 
 import java.util.List;
 
@@ -11,21 +12,23 @@ import java.util.List;
  */
 public class AddIfMaxCommand implements Command {
 
+    private final DataBase base;
     private final List<Product> products;
 
     /**
      * AddIfMaxCommand Constructor
-     * @param products - collection
+     * @param base - collection
      */
-    public AddIfMaxCommand(List<Product> products) { //done //maybe //TESTED! //OK
-        this.products = products;
+    public AddIfMaxCommand(DataBase base) { //done //maybe //TESTED! //OK
+        this.base = base;
+        products = base.getBase();
     }
 
     /**
      * Realization of this command
      */
     private void AddIfMaxRealization(){
-        CreateNewProduct createNewProduct = new CreateNewProduct();
+        CreateNewProduct createNewProduct = new CreateNewProduct(base);
         Product product = createNewProduct.HumanMode();
         boolean trigger = true; //if trigger is false, then creation will be canceled
         long price = product.getPrice(); //price is a comparison criterion
@@ -37,7 +40,7 @@ public class AddIfMaxCommand implements Command {
         }
         if (trigger){
             products.add(product);
-            Product.setLastInit();
+            base.setLastInit();
             System.out.println("\nПродукт создан!");
         }
         else {

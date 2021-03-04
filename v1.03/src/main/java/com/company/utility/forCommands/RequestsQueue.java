@@ -10,7 +10,7 @@ public class RequestsQueue {
     public static int getElemntAmount() {
         return elemntAmount;
     }
-    private static int elemntAmount = 0;
+    private static int elemntAmount = 0; //Переделать!!!!!
 
     public static boolean status = true;
     //human - true, script - false

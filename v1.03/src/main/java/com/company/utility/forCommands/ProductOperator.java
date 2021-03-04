@@ -29,7 +29,7 @@ public class ProductOperator extends DataOperator {
      * @return x coordinate if it was correct
      * @throws IncorrectDataException if it was not
      */
-    public Float getX() throws IncorrectDataException{
+    public Float getX() throws IncorrectDataException{ //Переделать рекурсию везде!!!
         if (RequestsQueue.status) System.out.print("     X: ");
         Float X = getFLOAT();
         if (DataChecker.NotNullCheck(X)) return X;

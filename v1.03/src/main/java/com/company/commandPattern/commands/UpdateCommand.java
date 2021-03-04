@@ -3,6 +3,7 @@ package com.company.commandPattern.commands;
 import com.company.commandPattern.Command;
 import com.company.data.Product;
 import com.company.utility.forCommands.CreateNewProduct;
+import com.company.utility.forData.DataBase;
 import com.company.utility.forData.DataOperator;
 import com.company.exceptions.IncorrectDataException;
 
@@ -13,25 +14,27 @@ import java.util.List;
  */
 public class UpdateCommand implements Command { //done //maybe //TESTED!
 
-    private final List<Product> products;
     private final DataOperator data;
     private Product update = null;
+    private DataBase base;
+    private final List<Product> products;
+
 
     /**
      * AddCommand Constructor
-     * @param products - collection
+     * @param base - collection
      * @param data - Class to run Data
      */
-    public UpdateCommand(List<Product> products, DataOperator data) {
-        this.products = products;
+    public UpdateCommand(DataBase base, DataOperator data) {
         this.data = data;
+        products = base.getBase();
     }
 
     /**
      * Realization of this command
      */
     private void UpdateRealization(){
-        CreateNewProduct createNewProduct = new CreateNewProduct(update);
+        CreateNewProduct createNewProduct = new CreateNewProduct(update, base);
         System.out.println("Updating...");
         String now = "Текущее значение поля ";
         System.out.println(now + "\"Название продукта\": " + update.getName());

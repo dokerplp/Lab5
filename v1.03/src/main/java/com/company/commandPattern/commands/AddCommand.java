@@ -3,6 +3,7 @@ package com.company.commandPattern.commands;
 import com.company.commandPattern.Command;
 import com.company.utility.forCommands.CreateNewProduct;
 import com.company.data.Product;
+import com.company.utility.forData.DataBase;
 
 import java.util.List;
 
@@ -11,21 +12,23 @@ import java.util.List;
  */
 public class AddCommand implements Command { //done //maybe //TESTED! //OK
 
+    private final DataBase base;
     private final List<Product> products;
 
     /**
      * AddCommand Constructor
-     * @param products - collection
+     * @param base - collection
      */
-    public AddCommand(List<Product> products) {
-        this.products = products;
+    public AddCommand(DataBase base) {
+        this.base = base;
+        products = base.getBase();
     }
 
     /**
      * Realization of this command
      */
     private void AddRealization(){
-        CreateNewProduct createNewProduct = new CreateNewProduct();
+        CreateNewProduct createNewProduct = new CreateNewProduct(base);
         Product product = createNewProduct.HumanMode();
         products.add(product);
     }
@@ -38,7 +41,7 @@ public class AddCommand implements Command { //done //maybe //TESTED! //OK
     public void execute(String Argument) {
         if (Argument != null) System.out.println("Эта комманда не требует никаих аргуметов так-то :)");
         AddRealization();
-        Product.setLastInit();
+        base.setLastInit();
         System.out.println("\nПродукт создан!");
     }
 }

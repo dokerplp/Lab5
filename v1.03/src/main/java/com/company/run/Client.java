@@ -22,14 +22,14 @@ public class Client {
      */
     public static void main(String[] args) {
 
-        List<Product> products = new ArrayList<>();
-        DataBase base = new DataBase(products);
+        List<Product> products = new ArrayList<>(); //коллекция
+        DataBase base = new DataBase(products); //База данных храник коллекцию
         User user = new User();
         DataOperator data = new DataOperator();
         CommandsOperator operator = new CommandsOperator(user, base, data);
 
         try{
-            new JSON_Breaker(products);
+            new JSON_Breaker(base);
             Collections.sort(products);
         }catch (Exception e){
             System.out.println("Не удалось загрузить коллекцию из файла");

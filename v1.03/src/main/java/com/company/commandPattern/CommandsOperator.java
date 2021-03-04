@@ -36,8 +36,8 @@ public class CommandsOperator { //Receiver
     private void SetCommands(){
         List<Product> products = base.getBase();
 
-        Command add = new AddCommand(products); //List
-        Command addIM = new AddIfMaxCommand(products); //List
+        Command add = new AddCommand(base); //List
+        Command addIM = new AddIfMaxCommand(base); //List
         Command averageOP = new AverageOfPriceCommand(products); //List
         Command clear = new ClearCommand(products); //List
         Command countBMC = new CountByManufactureCostCommand(products, data); //ListData
@@ -45,13 +45,13 @@ public class CommandsOperator { //Receiver
         Command executeScript = new ExecuteScriptCommand(); //NoData
         Command exit = new ExitCommand();
         Command help = new HelpCommand(); //NoData
-        Command info = new InfoCommand(products); //List
+        Command info = new InfoCommand(base); //List
         Command removeByID = new RemoveByIdCommand(products, data); //ListData
         Command removeGreater = new RemoveGreaterCommand(products, data); //ListData
-        Command save = new SaveCommand(products);  //List
+        Command save = new SaveCommand(base);  //List
         Command show = new ShowCommand(products); //List
         Command shuffle = new ShuffleCommand(products); //List
-        Command update = new UpdateCommand(products, data); //ListData
+        Command update = new UpdateCommand(base, data); //ListData
 
         user.addCommand("help", help);
         user.addCommand("add", add);

@@ -1,5 +1,6 @@
 package com.company.data;
 
+import com.company.utility.forData.DataBase;
 import com.company.utility.forData.DataChecker;
 
 import java.time.ZonedDateTime;
@@ -9,38 +10,6 @@ import java.util.List;
  * This class has information about product
  */
 public class Product implements Comparable<Product>{
-
-    /**
-     * Time of last collection save, its getter and setter
-     */
-    static private ZonedDateTime LastSave = null;
-    public static String getLastSave() {
-        if (LastSave == null) return "Еще не было сохранения";
-        else return LastSave.toString();
-    }
-    public static void setLastSave() {
-        LastSave = ZonedDateTime.now();
-    }
-
-    /**
-     * Time of last collection initialization, its getter and setter
-     */
-    static private ZonedDateTime LastInit = null;
-    public static String getLastInit() {
-        if (LastInit == null) return "Еще не было инициализации";
-        else return LastInit.toString();
-    }
-    public static void setLastInit() {
-        LastInit = ZonedDateTime.now();
-    }
-
-    /**
-     * Last id value and its getter
-     */
-    static private int LastID = 48759;
-    public static int getLastID(){
-        return LastID;
-    }
 
     ////////////////////////////////////////////////////////////////////////
 
@@ -53,14 +22,6 @@ public class Product implements Comparable<Product>{
     }
     public void setId(int id) {
         this.id = id;
-    }
-
-    /**
-     * This methods creates new id, which is more by one than last id
-     */
-    public void NewID(){
-        LastID += 1;
-        id = LastID;
     }
 
     /**
@@ -164,7 +125,9 @@ public class Product implements Comparable<Product>{
      * This methods checks if the fields has right values
      * @return true if all fields are correct and false if not
      */
-    public boolean correct (List<Product> list){
+    public boolean correct (DataBase base){
+
+        List<Product> list = base.getBase();
 
         if (!(DataChecker.UniqueProdIdCheck(list, id) && DataChecker.AboveZeroCheck(id))) return false;
         if (!(DataChecker.NotNullCheck(name) && DataChecker.NotEmptyLineCheck(name))) return false;
@@ -172,9 +135,9 @@ public class Product implements Comparable<Product>{
         if (! DataChecker.NotNullCheck(creationDate)) return false;
         if (! DataChecker.AboveZeroCheck(price)) return false;
         if (! DataChecker.NotNullCheck(unitOfMeasure)) return false;
-        if (!manufacturer.correct(list)) return false;
+        if (!manufacturer.correct(base)) return false;
         else {
-            if (id > LastID) LastID = id;
+            if (id > base.getProdLastId()) base.setProdLastId(id);
             return true;
         }
 

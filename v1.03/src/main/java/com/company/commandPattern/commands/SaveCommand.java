@@ -3,6 +3,7 @@ package com.company.commandPattern.commands;
 import com.company.commandPattern.Command;
 import com.company.data.Product;
 import com.company.utility.forCommands.FileOperator;
+import com.company.utility.forData.DataBase;
 import com.company.utility.json.JSON_Builder;
 
 import java.io.PrintWriter;
@@ -16,14 +17,16 @@ import java.util.List;
  */
 public class SaveCommand implements Command {
 
+    private DataBase base;
     private final List<Product> products;
 
     /**
      * AddCommand Constructor
-     * @param products - collection
+     * @param base - collection
      */
-    public SaveCommand(List<Product> products) {
-        this.products = products;
+    public SaveCommand(DataBase base) {
+        this.base = base;
+        products = base.getBase();
     }
 
     /**
@@ -56,7 +59,7 @@ public class SaveCommand implements Command {
             return path;
         } catch (Exception e) {
             System.out.println("Возникли проблемы с исходным файлом\nНовый файл создан и сохранен в домашней дириктории");
-            return "/Users/twenty_one_thirteen/Desktop/Lab5.json";
+            return "/home/s311769/Lab5/json.json";
         }
 
     }
@@ -69,7 +72,7 @@ public class SaveCommand implements Command {
         if (Argument != null) System.out.println("Эта комманда не требует никаих аргуметов так-то :)");
         try{
             SaveRealization();
-            Product.setLastSave();
+            base.setLastSave();
             System.out.println("Сохранено!");
         } catch (FileNotFoundException e) {
             System.out.println("Сохранение не состоялось");

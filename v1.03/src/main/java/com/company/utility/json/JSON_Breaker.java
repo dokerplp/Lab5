@@ -7,6 +7,7 @@ import java.io.*;
 
 import com.company.data.*;
 import com.company.utility.forCommands.FileOperator;
+import com.company.utility.forData.DataBase;
 import com.company.utility.forData.DataOperator;
 import com.company.exceptions.IncorrectDataException;
 import com.fasterxml.jackson.databind.*;
@@ -17,16 +18,17 @@ import com.fasterxml.jackson.databind.*;
  */
 public class JSON_Breaker {
 
-    private final List<Product> products;
+    private DataBase base;
+    private final List<Product> products = base.getBase();
 
     /**
      * Constructor
-     * @param products - collection
+     * @param base - collection
      * @throws IOException if you have problems with file
      */
-    public JSON_Breaker(List<Product> products) throws IOException {
+    public JSON_Breaker(DataBase base) throws IOException {
 
-        this.products = products;
+        this.base = base;
 
         String path = System.getenv("LAB");
         FileOperator.EnvExist(path);
@@ -59,7 +61,7 @@ public class JSON_Breaker {
 
             try {
                 Product product = transform(it, operator);
-                if (product.correct(products)) products.add(product);
+                if (product.correct(base)) products.add(product);
                 else throw new IncorrectDataException();
             } catch (IncorrectDataException e){
                 System.out.println("Продукт не добпален - данные не прошли проверку");

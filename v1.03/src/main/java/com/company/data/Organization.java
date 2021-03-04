@@ -1,5 +1,6 @@
 package com.company.data;
 
+import com.company.utility.forData.DataBase;
 import com.company.utility.forData.DataChecker;
 
 import java.util.List;
@@ -12,11 +13,6 @@ public class Organization {
     ////////////////////////////////////////////////////////////////////////
 
     /**
-     * The last used id
-     */
-    static private int LastID = 649432;
-
-    /**
      * id, its getter and setter
      */
     private int id = -1; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
@@ -25,14 +21,6 @@ public class Organization {
     }
     public void setId(int id) {
         this.id = id;
-    }
-
-    /**
-     * This methods creates new id, which is more by one than last id
-     */
-    public void NewID(){
-        LastID += 1;
-        id = LastID;
     }
 
     /**
@@ -85,14 +73,16 @@ public class Organization {
      * This methods checks if the fields has right values
      * @return true if all fields are correct and false if not
      */
-    public boolean correct(List<Product> products){
+    public boolean correct(DataBase base){
+
+        List<Product> products = base.getBase();
 
         if (! (DataChecker.AboveZeroCheck(id) && DataChecker.UniqueOrgIdCheck(products, id))) return false;
         if (!(DataChecker.NotNullCheck(name) && DataChecker.NotEmptyLineCheck(name))) return false;
         if (! DataChecker.AboveZeroCheck(employeesCount)) return false;
         if (! DataChecker.NotNullCheck(type)) return false;
         if (! officialAddress.correct()) return false;
-        if (id > LastID) LastID = id;
+        if (id > base.getOrgLastId()) base.setOrgLastId(id);
         return true;
 
     }

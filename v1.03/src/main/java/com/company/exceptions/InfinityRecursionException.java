@@ -5,7 +5,7 @@ package com.company.exceptions;
  */
 public class InfinityRecursionException extends RuntimeException{
 
-    private static int RecursionCounter = 0;
+    private static int RecursionCounter = 0; //Переделать!!!!!
 
     /**
      * Increments counter

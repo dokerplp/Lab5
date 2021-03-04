@@ -5,6 +5,7 @@ import com.company.data.Coordinates;
 import com.company.data.Organization;
 import com.company.data.Product;
 import com.company.exceptions.IncorrectDataException;
+import com.company.utility.forData.DataBase;
 
 /**
  * Creating Product
@@ -15,21 +16,24 @@ public class CreateNewProduct extends ProductOperator {
     private final Coordinates coordinates = new Coordinates();
     private final Organization organization = new Organization();
     private final Address address = new Address();
+    private final DataBase base;
 
 
     /**
      * Constructor for add command
      */
-    public CreateNewProduct() {
+    public CreateNewProduct(DataBase base) {
         product = new Product();
+        this.base = base;
     }
 
     /**
      * Constructor dor update command
      * @param product - Updatable product
      */
-    public CreateNewProduct(Product product){
+    public CreateNewProduct(Product product, DataBase base){
         this.product = product;
+        this.base = base;
     }
 
     /**
@@ -187,9 +191,9 @@ public class CreateNewProduct extends ProductOperator {
 
         product.setCoordinates(coordinates);
         organization.setOfficialAddress(address);
-        organization.NewID();
+        base.NewID(organization);
         product.setManufacturer(organization);
-        product.NewID();
+        base.NewID(product);
         product.NewCreationDate();
 
         return product;

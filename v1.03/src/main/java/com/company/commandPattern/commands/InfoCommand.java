@@ -2,6 +2,7 @@ package com.company.commandPattern.commands;
 
 import com.company.commandPattern.Command;
 import com.company.data.Product;
+import com.company.utility.forData.DataBase;
 
 import java.util.List;
 
@@ -10,14 +11,16 @@ import java.util.List;
  */
 public class InfoCommand implements Command { //done //maybe
 
+    private final DataBase base;
     private final List<Product> products;
 
     /**
      * AddIfMaxCommand Constructor
-     * @param products - collection
+     * @param base - collection
      */
-    public InfoCommand(List<Product> products) {
-        this.products = products;
+    public InfoCommand(DataBase base) {
+        this.base = base;
+        products = base.getBase();
     }
 
     /**
@@ -28,9 +31,9 @@ public class InfoCommand implements Command { //done //maybe
                 "Салам, сведения о коллекции:\n" +
                         "Тип: простой список обьектов\n" +
                         "Количество элементов: " + products.size() + "\n" +
-                        "Последнее сохранение коллекции: " + Product.getLastSave() + "\n" +
-                        "id последнего элемента: " + Product.getLastID() + "\n" +
-                        "Последняя инициализация: " + Product.getLastInit()
+                        "Последнее сохранение коллекции: " + base.getLastSave() + "\n" +
+                        "id последнего элемента: " + base.getOrgLastId() + "\n" +
+                        "Последняя инициализация: " + base.getLastInit()
         );
     }
 
