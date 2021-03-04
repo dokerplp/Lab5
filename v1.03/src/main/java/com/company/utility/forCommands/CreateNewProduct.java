@@ -40,10 +40,14 @@ public class CreateNewProduct extends ProductOperator {
      * Recursive asker of correct product name
      */
     public void setName(){
-        try {
-            product.setName(getName());
-        } catch (IncorrectDataException e){
-            setName();
+        boolean trigger = true;
+
+        while (trigger){
+            try {
+                product.setName(getName());
+                trigger = false;
+            } catch (IncorrectDataException ignored){
+            }
         }
     }
 
@@ -51,10 +55,14 @@ public class CreateNewProduct extends ProductOperator {
      * Recursive asker of correct x coordinate
      */
     public void setX(){
-        try {
-            coordinates.setX(getX());
-        } catch (IncorrectDataException e){
-            setX();
+        boolean trigger = true;
+
+        while (trigger){
+            try {
+                coordinates.setX(getX());
+                trigger = false;
+            } catch (IncorrectDataException ignored){
+            }
         }
     }
 
@@ -62,10 +70,14 @@ public class CreateNewProduct extends ProductOperator {
      * Recursive asker of correct y coordinate
      */
     public void setY(){
-        try {
-            coordinates.setY(getY());
-        } catch (IncorrectDataException e){
-            setY();
+        boolean trigger = true;
+
+        while (trigger){
+            try {
+                coordinates.setY(getY());
+                trigger = false;
+            } catch (IncorrectDataException ignored){
+            }
         }
     }
 
@@ -73,10 +85,14 @@ public class CreateNewProduct extends ProductOperator {
      * Recursive asker of correct product price
      */
     public void setPrice(){
-        try{
-            product.setPrice(getPrice());
-        } catch (IncorrectDataException e){
-            setPrice();
+        boolean trigger = true;
+
+        while (trigger){
+            try {
+                product.setPrice(getPrice());
+                trigger = false;
+            } catch (IncorrectDataException ignored){
+            }
         }
     }
 
@@ -84,10 +100,14 @@ public class CreateNewProduct extends ProductOperator {
      * Recursive asker of correct product part number
      */
     public void setPartNumber(){
-        try{
-            product.setPartNumber(getPartNumber());
-        } catch (IncorrectDataException e){
-            setPartNumber();
+        boolean trigger = true;
+
+        while (trigger){
+            try {
+                product.setPartNumber(getPartNumber());
+                trigger = false;
+            } catch (IncorrectDataException ignored){
+            }
         }
     }
 
@@ -95,10 +115,14 @@ public class CreateNewProduct extends ProductOperator {
      * Recursive asker of correct product manufacture cost
      */
     public void setMCost(){
-        try{
-            product.setManufactureCost(getMCost());
-        } catch (IncorrectDataException e){
-            setMCost();
+        boolean trigger = true;
+
+        while (trigger){
+            try {
+                product.setManufactureCost(getMCost());
+                trigger = false;
+            } catch (IncorrectDataException ignored){
+            }
         }
     }
 
@@ -106,10 +130,14 @@ public class CreateNewProduct extends ProductOperator {
      * Recursive asker of correct product Unit of Measure
      */
     public void setMeasure(){
-        try{
-            product.setUnitOfMeasure(getMeasure());
-        } catch (IncorrectDataException e){
-            setMeasure();
+        boolean trigger = true;
+
+        while (trigger){
+            try {
+                product.setUnitOfMeasure(getMeasure());
+                trigger = false;
+            } catch (IncorrectDataException ignored){
+            }
         }
     }
 
@@ -117,10 +145,14 @@ public class CreateNewProduct extends ProductOperator {
      * Recursive asker of correct organization name
      */
     public void setOrgName(){
-        try{
-            organization.setName(getOrgName());
-        } catch (IncorrectDataException e){
-            setOrgName();
+        boolean trigger = true;
+
+        while (trigger){
+            try {
+                organization.setName(getOrgName());
+                trigger = false;
+            } catch (IncorrectDataException ignored){
+            }
         }
     }
 
@@ -128,10 +160,14 @@ public class CreateNewProduct extends ProductOperator {
      * Recursive asker of correct organization employees count
      */
     public void setEcount(){
-        try{
-            organization.setEmployeesCount(getEcount());
-        } catch (IncorrectDataException e){
-            setEcount();
+        boolean trigger = true;
+
+        while (trigger){
+            try {
+                organization.setEmployeesCount(getEcount());
+                trigger = false;
+            } catch (IncorrectDataException ignored){
+            }
         }
     }
 
@@ -139,10 +175,14 @@ public class CreateNewProduct extends ProductOperator {
      * Recursive asker of correct organization type
      */
     public void setType(){
-        try{
-            organization.setType(getType());
-        } catch (IncorrectDataException e){
-            setType();
+        boolean trigger = true;
+
+        while (trigger){
+            try {
+                organization.setType(getType());
+                trigger = false;
+            } catch (IncorrectDataException ignored){
+            }
         }
     }
 
@@ -150,10 +190,14 @@ public class CreateNewProduct extends ProductOperator {
      * Recursive asker of correct organization street
      */
     public void setStreet(){
-        try{
-            address.setStreet(getStreet());
-        } catch (IncorrectDataException e){
-            setStreet();
+        boolean trigger = true;
+
+        while (trigger){
+            try {
+                address.setStreet(getStreet());
+                trigger = false;
+            } catch (IncorrectDataException ignored){
+            }
         }
     }
 
@@ -161,10 +205,14 @@ public class CreateNewProduct extends ProductOperator {
      * Recursive asker of correct organization zip code
      */
     public void setZip(){
-        try{
-            address.setZipCode(getZip());
-        } catch (IncorrectDataException e){
-            setZip();
+        boolean trigger = true;
+
+        while (trigger){
+            try {
+                address.setZipCode(getZip());
+                trigger = false;
+            } catch (IncorrectDataException ignored){
+            }
         }
     }
 
