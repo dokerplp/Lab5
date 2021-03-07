@@ -33,13 +33,16 @@ public class SaveCommand implements Command {
      * Realization of this command
      */
     private void SaveRealization() throws FileNotFoundException {
-        File file = new File(CheckFileOrCreateFile());
-        JSON_Builder builder = new JSON_Builder();
+        String path = CheckFileOrCreateFile();
+        if (path != null){
+            File file = new File(path);
+            JSON_Builder builder = new JSON_Builder();
 
-        PrintWriter pw = new PrintWriter(file);
-        String line = builder.packCollection(products);
-        pw.print(line);
-        pw.close();
+            PrintWriter pw = new PrintWriter(file);
+            String line = builder.packCollection(products);
+            pw.print(line);
+            pw.close();
+        }
     }
 
     /**
@@ -58,10 +61,9 @@ public class SaveCommand implements Command {
             FileOperator.Writable(DJEYSON);
             return path;
         } catch (Exception e) {
-            System.out.println("Возникли проблемы с исходным файлом\nНовый файл создан и сохранен в домашней дириктории");
-            return "/home/s311769/Lab5/json.json";
+            System.out.println("Возникли проблемы с исходным файлом\nНовый файл создан и сохранен в домашней дириктории");;
         }
-
+        return null;
     }
 
     /**
@@ -72,7 +74,7 @@ public class SaveCommand implements Command {
         if (Argument != null) System.out.println("Эта комманда не требует никаих аргуметов так-то :)");
         try{
             SaveRealization();
-            base.setLastSave();
+            base.getFields().setLastSave();
             System.out.println("Сохранено!");
         } catch (FileNotFoundException e) {
             System.out.println("Сохранение не состоялось");

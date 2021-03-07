@@ -16,7 +16,7 @@ public class UpdateCommand implements Command { //done //maybe //TESTED!
 
     private final DataOperator data;
     private Product update = null;
-    private DataBase base;
+    private final DataBase base;
     private final List<Product> products;
 
 
@@ -26,6 +26,7 @@ public class UpdateCommand implements Command { //done //maybe //TESTED!
      * @param data - Class to run Data
      */
     public UpdateCommand(DataBase base, DataOperator data) {
+        this.base = base;
         this.data = data;
         products = base.getBase();
     }

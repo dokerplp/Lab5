@@ -2,6 +2,7 @@ package com.company.commandPattern.commands;
 
 import com.company.commandPattern.Command;
 import com.company.data.Product;
+import com.company.utility.forData.DataBase;
 
 import java.util.List;
 
@@ -14,10 +15,10 @@ public class ShowCommand implements Command { //done //maybe //TESTED!
 
     /**
      * AddCommand Constructor
-     * @param products - collection
+     * @param base - collection
      */
-    public ShowCommand(List<Product> products) {
-        this.products = products;
+    public ShowCommand(DataBase base) {
+        this.products = base.getBase();
     }
 
     /**

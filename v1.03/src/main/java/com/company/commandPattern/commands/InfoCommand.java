@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Command types information about collection
  */
-public class InfoCommand implements Command { //done //maybe
+public class InfoCommand implements Command {
 
     private final DataBase base;
     private final List<Product> products;
@@ -31,9 +31,9 @@ public class InfoCommand implements Command { //done //maybe
                 "Салам, сведения о коллекции:\n" +
                         "Тип: простой список обьектов\n" +
                         "Количество элементов: " + products.size() + "\n" +
-                        "Последнее сохранение коллекции: " + base.getLastSave() + "\n" +
-                        "id последнего элемента: " + base.getOrgLastId() + "\n" +
-                        "Последняя инициализация: " + base.getLastInit()
+                        "Последнее сохранение коллекции: " + base.getFields().getLastSave() + "\n" +
+                        "id последнего элемента: " + base.getFields().getOrgLastId() + "\n" +
+                        "Последняя инициализация: " + base.getFields().getLastInit()
         );
     }
 

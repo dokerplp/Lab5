@@ -2,6 +2,7 @@ package com.company.commandPattern.commands;
 
 import com.company.commandPattern.Command;
 import com.company.data.Product;
+import com.company.utility.forData.DataBase;
 import com.company.utility.forData.DataOperator;
 import com.company.exceptions.IncorrectDataException;
 
@@ -10,19 +11,19 @@ import java.util.List;
 /**
  * Command counts amount of elements which manufacture cost is less than some number
  */
-public class CountLessThanManufactureCostCommand implements Command { //done //maybe //TESTED!
+public class CountLessThanManufactureCostCommand implements Command { //Good
 
-    private final List<Product> products;
-    private final DataOperator data;
-    private float manufactureCost;
+    private final List<Product> products; //Collection
+    private final DataOperator data; //Utility for operating data
+    private float manufactureCost; //Argument
 
     /**
      * AddIfMaxCommand Constructor
-     * @param products - collection
+     * @param base - collection
      * @param data - Class to run Data
      */
-    public CountLessThanManufactureCostCommand(List<Product> products, DataOperator data) {
-        this.products = products;
+    public CountLessThanManufactureCostCommand(DataBase base, DataOperator data) {
+        this.products = base.getBase();
         this.data = data;
     }
 

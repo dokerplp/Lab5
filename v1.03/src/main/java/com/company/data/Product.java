@@ -137,7 +137,7 @@ public class Product implements Comparable<Product>{
         if (! DataChecker.NotNullCheck(unitOfMeasure)) return false;
         if (!manufacturer.correct(base)) return false;
         else {
-            if (id > base.getProdLastId()) base.setProdLastId(id);
+            if (id > base.getFields().getProdLastId()) base.getFields().setProdLastId(id);
             return true;
         }
 

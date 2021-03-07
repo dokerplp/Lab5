@@ -55,7 +55,7 @@ public class JSON_Breaker {
     public void JSONtoProduct(String json) throws IOException {
 
         List<HashMap<String, Object>> list = new ObjectMapper().readValue(json, List.class);
-        DataOperator operator = new DataOperator();
+        DataOperator operator = new DataOperator(base.getQueue());
 
         for (HashMap<String, Object> it : list){
 

@@ -2,6 +2,7 @@ package com.company.commandPattern.commands;
 
 import com.company.commandPattern.Command;
 import com.company.data.Product;
+import com.company.utility.forData.DataBase;
 import com.company.utility.forData.DataChecker;
 import com.company.utility.forData.DataOperator;
 import com.company.exceptions.IncorrectDataException;
@@ -12,8 +13,7 @@ import java.util.List;
 /**
  * Command deletes element by id, or types that there are no element with such id
  */
-public class RemoveByIdCommand implements Command { //done //maybe //TESTED!
-
+public class RemoveByIdCommand implements Command {
     private int id;
     private final List<Product> products;
     private final DataOperator data;
@@ -23,8 +23,8 @@ public class RemoveByIdCommand implements Command { //done //maybe //TESTED!
      * @param products - collection
      * @param data - Class to run Data
      */
-    public RemoveByIdCommand(List<Product> products, DataOperator data) {
-        this.products = products;
+    public RemoveByIdCommand(DataBase base, DataOperator data) {
+        this.products = base.getBase();
         this.data = data;
     }
 

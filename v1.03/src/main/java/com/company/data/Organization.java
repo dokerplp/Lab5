@@ -82,7 +82,7 @@ public class Organization {
         if (! DataChecker.AboveZeroCheck(employeesCount)) return false;
         if (! DataChecker.NotNullCheck(type)) return false;
         if (! officialAddress.correct()) return false;
-        if (id > base.getOrgLastId()) base.setOrgLastId(id);
+        if (id > base.getFields().getOrgLastId()) base.getFields().setOrgLastId(id);
         return true;
 
     }

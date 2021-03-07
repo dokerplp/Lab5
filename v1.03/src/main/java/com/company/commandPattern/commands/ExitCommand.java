@@ -5,7 +5,7 @@ import com.company.commandPattern.Command;
 /**
  * Command stops the program
  */
-public class ExitCommand implements Command { //done //maybe //TESTED!
+public class ExitCommand implements Command { //good
 
     /**
      * Realization of this command

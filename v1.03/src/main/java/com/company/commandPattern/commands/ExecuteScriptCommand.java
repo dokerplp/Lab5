@@ -7,6 +7,7 @@ import com.company.utility.forCommands.FileOperator;
 import com.company.utility.forCommands.RequestsQueue;
 import com.company.exceptions.CantReadException;
 import com.company.exceptions.FileDoesNotExistException;
+import com.company.utility.forData.DataBase;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -15,24 +16,35 @@ import java.util.Scanner;
 /**
  * Command execute user's script
  */
-public class ExecuteScriptCommand implements Command {
+public class ExecuteScriptCommand implements Command { ///good
+
+    private final DataBase base; //Queue
+
+    public ExecuteScriptCommand(DataBase base){
+        this.base = base;
+    }
 
     /**
      * Realization of this command
      * @param path - script path
      */
     private void ExecuteScriptRealization(String path){
+
+        RequestsQueue queue = base.getQueue();
+
         File script = new File(path);
-        try {
+        try { //File checking
             FileOperator.FileExist(script);
             FileOperator.IsFile(script);
             FileOperator.Readable(script);
 
-            RequestsQueue.status = false;
-            Scanner requests = new Scanner(script);
-            List<String> list = new ArrayList<>();
+            queue.setStatus(false); //Program wont write writing invitation
+
+            Scanner requests = new Scanner(script); //Check script
+            List<String> list = new ArrayList<>(); //List of commands
+
             while (requests.hasNext()) list.add(requests.next());
-            RequestsQueue.pushAll(list);
+            queue.pushAll(list);
 
             InfinityRecursionException.newRec();
 

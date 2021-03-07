@@ -12,14 +12,14 @@ import java.util.List;
  */
 public class AddIfMaxCommand implements Command {
 
-    private final DataBase base;
-    private final List<Product> products;
+    private final DataBase base; //For list
+    private final List<Product> products; //Add element to collection
 
     /**
      * AddIfMaxCommand Constructor
      * @param base - collection
      */
-    public AddIfMaxCommand(DataBase base) { //done //maybe //TESTED! //OK
+    public AddIfMaxCommand(DataBase base) {
         this.base = base;
         products = base.getBase();
     }
@@ -32,15 +32,15 @@ public class AddIfMaxCommand implements Command {
         Product product = createNewProduct.HumanMode();
         boolean trigger = true; //if trigger is false, then creation will be canceled
         long price = product.getPrice(); //price is a comparison criterion
-        for (Product product2 : products){
-            if (product2.getPrice() >= price) {
+        for (Product product2 : products){ //Check all prices
+            if (product2.getPrice() >= price) { //If new price isn't the highest
                 trigger = false;
                 break;
             }
         }
         if (trigger){
             products.add(product);
-            base.setLastInit();
+            base.getFields().setLastInit(); //Set new Initialization time
             System.out.println("\nПродукт создан!");
         }
         else {

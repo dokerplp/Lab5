@@ -23,6 +23,7 @@ public class CreateNewProduct extends ProductOperator {
      * Constructor for add command
      */
     public CreateNewProduct(DataBase base) {
+        super(base.getQueue());
         product = new Product();
         this.base = base;
     }
@@ -32,6 +33,7 @@ public class CreateNewProduct extends ProductOperator {
      * @param product - Updatable product
      */
     public CreateNewProduct(Product product, DataBase base){
+        super(base.getQueue());
         this.product = product;
         this.base = base;
     }
@@ -222,26 +224,26 @@ public class CreateNewProduct extends ProductOperator {
      */
     public Product HumanMode(){
         setName();
-        if (RequestsQueue.status) System.out.println("Координаты: ");
+        if (base.getQueue().isStatus()) System.out.println("Координаты: ");
         setX();
         setY();
         setPrice();
         setPartNumber();
         setMCost();
         setMeasure();
-        if (RequestsQueue.status) System.out.println("Изготовитель: ");
+        if (base.getQueue().isStatus()) System.out.println("Изготовитель: ");
         setOrgName();
         setEcount();
         setType();
-        if (RequestsQueue.status) System.out.println("     Адрес: ");
+        if (base.getQueue().isStatus()) System.out.println("     Адрес: ");
         setStreet();
         setZip();
 
         product.setCoordinates(coordinates);
         organization.setOfficialAddress(address);
-        base.NewID(organization);
+        base.getFields().NewID(organization);
         product.setManufacturer(organization);
-        base.NewID(product);
+        base.getFields().NewID(product);
         product.NewCreationDate();
 
         return product;

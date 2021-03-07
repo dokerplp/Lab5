@@ -10,10 +10,10 @@ import java.util.List;
 /**
  * Command create and add new element to collection
  */
-public class AddCommand implements Command { //done //maybe //TESTED! //OK
+public class AddCommand implements Command { //Good
 
-    private final DataBase base;
-    private final List<Product> products;
+    private final DataBase base; //For list
+    private final List<Product> products; //Add to collection
 
     /**
      * AddCommand Constructor
@@ -28,7 +28,7 @@ public class AddCommand implements Command { //done //maybe //TESTED! //OK
      * Realization of this command
      */
     private void AddRealization(){
-        CreateNewProduct createNewProduct = new CreateNewProduct(base);
+        CreateNewProduct createNewProduct = new CreateNewProduct(base); //Class for creation class
         Product product = createNewProduct.HumanMode();
         products.add(product);
     }
@@ -41,7 +41,7 @@ public class AddCommand implements Command { //done //maybe //TESTED! //OK
     public void execute(String Argument) {
         if (Argument != null) System.out.println("Эта комманда не требует никаих аргуметов так-то :)");
         AddRealization();
-        base.setLastInit();
+        base.getFields().setLastInit(); //New Initialization Time
         System.out.println("\nПродукт создан!");
     }
 }

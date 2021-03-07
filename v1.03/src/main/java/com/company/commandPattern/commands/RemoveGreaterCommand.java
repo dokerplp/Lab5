@@ -2,6 +2,7 @@ package com.company.commandPattern.commands;
 
 import com.company.commandPattern.Command;
 import com.company.data.Product;
+import com.company.utility.forData.DataBase;
 import com.company.utility.forData.DataOperator;
 import com.company.exceptions.IncorrectDataException;
 
@@ -22,8 +23,8 @@ public class RemoveGreaterCommand implements Command { //done //maybe //TESTED!
      * @param products - collection
      * @param data - Class to run Data
      */
-    public RemoveGreaterCommand(List<Product> products, DataOperator data) {
-        this.products = products;
+    public RemoveGreaterCommand(DataBase base, DataOperator data) {
+        this.products = base.getBase();
         this.data = data;
     }
 

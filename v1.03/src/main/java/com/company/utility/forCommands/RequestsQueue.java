@@ -6,29 +6,36 @@ import java.util.Queue;
 
 public class RequestsQueue {
 
-    private final static Queue<String> request = new ArrayDeque<>();
-    public static int getElemntAmount() {
-        return elemntAmount;
-    }
-    private static int elemntAmount = 0; //Переделать!!!!!
+    private final Queue<String> request = new ArrayDeque<>();
 
-    public static boolean status = true;
-    //human - true, script - false
-
-    public static void pushOne(String line){
+    public void pushOne(String line){
         request.add(line);
-        elemntAmount += 1;
+        ElementAmount += 1;
     }
 
-    public static void pushAll(List<String> list){
+    public void pushAll(List<String> list){
         request.addAll(list);
-        elemntAmount += list.size();
+        ElementAmount += list.size();
     }
 
-    public static String pollOne(){
-        elemntAmount -= 1;
+    public String pollOne(){
+        ElementAmount -= 1;
         return request.poll();
     }
 
+    private int ElementAmount = 0;
+    public int getElementAmount() {
+        return ElementAmount;
+    }
+    public void setElementAmount(int elementAmount) {
+        ElementAmount = elementAmount;
+    }
 
+    private boolean Status = true;
+    public boolean isStatus() {
+        return Status;
+    }
+    public void setStatus(boolean status) {
+        Status = status;
+    }
 }

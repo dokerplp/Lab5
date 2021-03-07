@@ -2,6 +2,7 @@ package com.company.commandPattern.commands;
 
 import com.company.commandPattern.Command;
 import com.company.data.Product;
+import com.company.utility.forData.DataBase;
 
 import java.util.Collections;
 import java.util.List;
@@ -15,10 +16,10 @@ public class ShuffleCommand implements Command { //done //maybe //TESTED!
 
     /**
      * AddCommand Constructor
-     * @param products - collection
+     * @param base - collection
      */
-    public ShuffleCommand(List<Product> products) {
-        this.products = products;
+    public ShuffleCommand(DataBase base) {
+        this.products = base.getBase();
     }
 
     /**
