@@ -1,12 +1,16 @@
-package com.company;
+package com.company.utility.forData;
 
 import com.company.data.Organization;
 import com.company.data.Product;
+import com.company.exceptions.InfinityRecursionException;
 
 import java.time.ZonedDateTime;
 
 public class Fields {
 
+    /**
+     * Last product id its getter, setter and method making new id
+     */
     private int ProdLastId = 649432;
     public int getProdLastId() {
         return ProdLastId;
@@ -19,6 +23,9 @@ public class Fields {
         product.setId(ProdLastId);
     }
 
+    /**
+     * Last organization id its getter, setter and method making new id
+     */
     private int OrgLastId = 563592;
     public int getOrgLastId() {
         return OrgLastId;
@@ -31,7 +38,9 @@ public class Fields {
         organization.setId(OrgLastId);
     }
 
-
+    /**
+     * Last Initialization time, its getter, setter
+     */
     private ZonedDateTime LastInit = null;
     public String getLastInit() {
         if (LastInit == null) return "Еще не было инициализации";
@@ -41,6 +50,9 @@ public class Fields {
         LastInit = ZonedDateTime.now();
     }
 
+    /**
+     * Last Save time, its getter, setter
+     */
     private ZonedDateTime LastSave = null;
     public String getLastSave() {
         if (LastSave == null) return "Еще не было сохранения";
@@ -50,20 +62,32 @@ public class Fields {
         LastSave = ZonedDateTime.now();
     }
 
-    private static int RecursionCounter = 0;
+    /**
+     * Counts amount of recursions
+     */
+    private int RecursionCounter = 0;
 
     /**
      * Increments counter
      */
-    public static void RecPlus(){
+    public void RecPlus(){
         RecursionCounter++;
     }
 
     /**
      * Makes counter equal 0
      */
-    public static void Putin(){
+    public void Putin(){
         RecursionCounter = 0;
+    }
+
+    /**
+     * Checking amount of recursions
+     * @throws InfinityRecursionException if it need
+     */
+    public  void newRec() throws InfinityRecursionException{
+        if (RecursionCounter >= 100) throw new InfinityRecursionException();
+        else RecPlus();
     }
 
 

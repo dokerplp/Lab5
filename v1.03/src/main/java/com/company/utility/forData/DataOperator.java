@@ -3,6 +3,7 @@ package com.company.utility.forData;
 import com.company.exceptions.IncorrectDataException;
 import com.company.utility.forCommands.RequestsQueue;
 
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
@@ -14,6 +15,10 @@ public class DataOperator {
     private final Scanner console = new Scanner(System.in);
     private final RequestsQueue queue;
 
+    /**
+     * DataOperator Constructor
+     * @param queue - collection
+     */
     public DataOperator(RequestsQueue queue) {
         this.queue = queue;
     }
@@ -74,10 +79,16 @@ public class DataOperator {
      * @return string
      */
     public String getSTRING(){
-        if (queue.getElementAmount() == 0) queue.pushOne(console.nextLine());
-        String data = queue.pollOne();
-        if (data.trim().equals("") || data.trim().equals("null")) return null;
-        else return data;
+        try{
+            if (queue.getElementAmount() == 0) queue.pushOne(console.nextLine());
+            String data = queue.pollOne();
+            if (data.trim().equals("") || data.trim().equals("null")) return null;
+            else return data;
+        } catch (NoSuchElementException e){
+            System.out.println("КЧАУ");
+            System.exit(0);
+        }
+        return null;
     }
 
     /**

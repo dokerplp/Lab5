@@ -219,7 +219,7 @@ public class CreateNewProduct extends ProductOperator {
     }
 
     /**
-     * Run all recursive methods (for humans only)
+     * Run all recursive methods
      * @return done Product object
      */
     public Product HumanMode(){

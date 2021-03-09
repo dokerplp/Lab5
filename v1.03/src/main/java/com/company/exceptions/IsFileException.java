@@ -6,6 +6,6 @@ package com.company.exceptions;
 public class IsFileException extends RuntimeException{
 
     public IsFileException(){
-        System.out.println("По указанному адресу не лежит файл");
+        System.err.println("По указанному адресу не лежит файл");
     }
 }

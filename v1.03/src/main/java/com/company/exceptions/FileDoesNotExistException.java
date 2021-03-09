@@ -6,7 +6,7 @@ package com.company.exceptions;
 public class FileDoesNotExistException extends RuntimeException {
 
     public FileDoesNotExistException() {
-        System.out.println("Файла, находящегося по указанному адресу, не существует");
+        System.err.println("Файла, находящегося по указанному адресу, не существует");
     }
 
 }

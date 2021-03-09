@@ -6,7 +6,7 @@ package com.company.exceptions;
 public class CantReadException extends RuntimeException{
 
     public CantReadException() {
-        System.out.println("Нет прав для чтения данного файла");
+        System.err.println("Нет прав для чтения данного файла");
     }
 
 }

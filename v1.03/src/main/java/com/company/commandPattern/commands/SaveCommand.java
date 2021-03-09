@@ -2,6 +2,7 @@ package com.company.commandPattern.commands;
 
 import com.company.commandPattern.Command;
 import com.company.data.Product;
+import com.company.exceptions.IncorrectDataException;
 import com.company.utility.forCommands.FileOperator;
 import com.company.utility.forData.DataBase;
 import com.company.utility.json.JSON_Builder;
@@ -17,8 +18,8 @@ import java.util.List;
  */
 public class SaveCommand implements Command {
 
-    private DataBase base;
-    private final List<Product> products;
+    private final DataBase base; //Base
+    private final List<Product> products; //Collection
 
     /**
      * AddCommand Constructor
@@ -32,8 +33,10 @@ public class SaveCommand implements Command {
     /**
      * Realization of this command
      */
-    private void SaveRealization() throws FileNotFoundException {
+    private void SaveRealization() throws IncorrectDataException, FileNotFoundException {
+
         String path = CheckFileOrCreateFile();
+
         if (path != null){
             File file = new File(path);
             JSON_Builder builder = new JSON_Builder();
@@ -43,6 +46,7 @@ public class SaveCommand implements Command {
             pw.print(line);
             pw.close();
         }
+        else throw new IncorrectDataException();
     }
 
     /**
@@ -76,7 +80,7 @@ public class SaveCommand implements Command {
             SaveRealization();
             base.getFields().setLastSave();
             System.out.println("Сохранено!");
-        } catch (FileNotFoundException e) {
+        } catch (Exception e) {
             System.out.println("Сохранение не состоялось");
         }
     }

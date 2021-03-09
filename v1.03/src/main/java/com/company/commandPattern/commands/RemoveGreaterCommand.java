@@ -12,27 +12,26 @@ import java.util.List;
 /**
  * Command deletes all elements which price is more than some number
  */
-public class RemoveGreaterCommand implements Command { //done //maybe //TESTED!
+public class RemoveGreaterCommand implements Command {
 
     private final List<Product> products;
     private final DataOperator data;
-    private long price;
+    private long price; //Argument
 
     /**
-     * AddCommand Constructor
-     * @param products - collection
-     * @param data - Class to run Data
+     * RemoveGreaterCommand Constructor
+     * @param base - collection and data operator
      */
-    public RemoveGreaterCommand(DataBase base, DataOperator data) {
+    public RemoveGreaterCommand(DataBase base) {
         this.products = base.getBase();
-        this.data = data;
+        this.data = base.getOperator();
     }
 
     /**
      * Realization of this command
      */
     private void RemoveGreaterRealization(){
-        boolean trigger = false;
+        boolean trigger = false; //If trigger is true object will be removed
         Iterator<Product> iterator = products.iterator();
         while(iterator.hasNext()){
             Product NextProduct = iterator.next();

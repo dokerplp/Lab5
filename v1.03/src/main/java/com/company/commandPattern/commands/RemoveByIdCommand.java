@@ -14,25 +14,25 @@ import java.util.List;
  * Command deletes element by id, or types that there are no element with such id
  */
 public class RemoveByIdCommand implements Command {
-    private int id;
+
+    private int id; //Argument
     private final List<Product> products;
     private final DataOperator data;
 
     /**
-     * AddCommand Constructor
-     * @param products - collection
-     * @param data - Class to run Data
+     * RemoveByIdCommand Constructor
+     * @param base - collection and data operator
      */
-    public RemoveByIdCommand(DataBase base, DataOperator data) {
+    public RemoveByIdCommand(DataBase base) {
         this.products = base.getBase();
-        this.data = data;
+        this.data = base.getOperator();
     }
 
     /**
      * Realization of this command
      */
     private void RemoveByIdRealization(){
-        boolean trigger = false;
+        boolean trigger = false; //If trigger is true object will be removed
         Iterator<Product> iterator = products.iterator();
         while(iterator.hasNext()){
             Product NextProduct = iterator.next();

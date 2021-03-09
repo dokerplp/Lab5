@@ -9,9 +9,9 @@ import java.util.List;
 /**
  * Command deletes all elements in collection
  */
-public class ClearCommand implements Command { //Good
+public class ClearCommand implements Command {
 
-    private final List<Product> products; //Collection
+    private final List<Product> products;
 
     /**
      * AddIfMaxCommand Constructor
@@ -25,7 +25,7 @@ public class ClearCommand implements Command { //Good
      * Realization of this command
      */
     private void ClearRealization(){
-        products.clear(); //Clear Collection
+        products.clear();
     }
 
     /**

@@ -19,16 +19,18 @@ public class UpdateCommand implements Command { //done //maybe //TESTED!
     private final DataBase base;
     private final List<Product> products;
 
+    private final boolean trigger; //true - should write invitation; false - not
 
     /**
-     * AddCommand Constructor
-     * @param base - collection
-     * @param data - Class to run Data
+     * UpdateCommand Constructor
+     * @param base - collection and data operator
      */
-    public UpdateCommand(DataBase base, DataOperator data) {
+    public UpdateCommand(DataBase base) {
         this.base = base;
-        this.data = data;
+        this.data = base.getOperator();
         products = base.getBase();
+
+        trigger = base.getQueue().isStatus();
     }
 
     /**
@@ -40,27 +42,27 @@ public class UpdateCommand implements Command { //done //maybe //TESTED!
         String now = "Текущее значение поля ";
         System.out.println(now + "\"Название продукта\": " + update.getName());
         if (Up()) createNewProduct.setName();
-        System.out.println(now + "\"Координата X\": " + update.getCoordinates().getX());
+        if (trigger) System.out.println(now + "\"Координата X\": " + update.getCoordinates().getX());
         if (Up()) createNewProduct.setX();
-        System.out.println(now + "\"Координата Y\": " + update.getCoordinates().getY());
+        if (trigger) System.out.println(now + "\"Координата Y\": " + update.getCoordinates().getY());
         if (Up()) createNewProduct.setY();
-        System.out.println(now + "\"Цена\": " + update.getPrice());
+        if (trigger) System.out.println(now + "\"Цена\": " + update.getPrice());
         if (Up()) createNewProduct.setPrice();
-        System.out.println(now + "\"Артикул\": " + update.getPartNumber());
+        if (trigger) System.out.println(now + "\"Артикул\": " + update.getPartNumber());
         if (Up()) createNewProduct.setPartNumber();
-        System.out.println(now + "\"Цена производства\": " + update.getManufactureCost());
+        if (trigger) System.out.println(now + "\"Цена производства\": " + update.getManufactureCost());
         if (Up()) createNewProduct.setMCost();
-        System.out.println(now + "\"Единица измерения\": " + update.getUnitOfMeasure().getType());
+        if (trigger) System.out.println(now + "\"Единица измерения\": " + update.getUnitOfMeasure().getType());
         if (Up()) createNewProduct.setMeasure();
-        System.out.println(now + "\"Название организации\": " + update.getManufacturer().getName());
+        if (trigger) System.out.println(now + "\"Название организации\": " + update.getManufacturer().getName());
         if (Up()) createNewProduct.setOrgName();
-        System.out.println(now + "\"Количество работников\": " + update.getManufacturer().getEmployeesCount());
+        if (trigger) System.out.println(now + "\"Количество работников\": " + update.getManufacturer().getEmployeesCount());
         if (Up()) createNewProduct.setEcount();
-        System.out.println(now + "\"Тип компании\": " + update.getManufacturer().getType());
+        if (trigger) System.out.println(now + "\"Тип компании\": " + update.getManufacturer().getType());
         if (Up()) createNewProduct.setType();
-        System.out.println(now + "\"Улица\": " + update.getManufacturer().getOfficialAddress().getStreet());
+        if (trigger) System.out.println(now + "\"Улица\": " + update.getManufacturer().getOfficialAddress().getStreet());
         if (Up()) createNewProduct.setName();
-        System.out.println(now + "\"Почтовый код\": " + update.getManufacturer().getOfficialAddress().getZipCode());
+        if (trigger) System.out.println(now + "\"Почтовый код\": " + update.getManufacturer().getOfficialAddress().getZipCode());
         if (Up()) createNewProduct.setZip();
 
         System.out.println("\nИзменения сохранены!");

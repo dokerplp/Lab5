@@ -8,12 +8,12 @@ import com.company.utility.forData.DataBase;
 import java.util.List;
 
 /**
- * Command create and add new element to collection, if its price is more then  ̶u̶n̶i̶v̶e̶r̶s̶i̶t̶y̶ max price
+ * Command create and add new element to collection, if its price is more then u̶n̶i̶v̶e̶r̶s̶i̶t̶y̶ max price
  */
 public class AddIfMaxCommand implements Command {
 
-    private final DataBase base; //For list
-    private final List<Product> products; //Add element to collection
+    private final DataBase base;
+    private final List<Product> products;
 
     /**
      * AddIfMaxCommand Constructor

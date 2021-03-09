@@ -14,6 +14,10 @@ public class ProductOperator extends DataOperator {
 
     private final RequestsQueue queue;
 
+    /**
+     * ProductOperator Constructor
+     * @param queue - queue
+     */
     public ProductOperator(RequestsQueue queue) {
         super(queue);
         this.queue = queue;

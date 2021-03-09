@@ -18,8 +18,8 @@ import com.fasterxml.jackson.databind.*;
  */
 public class JSON_Breaker {
 
-    private DataBase base;
-    private final List<Product> products = base.getBase();
+    private final DataBase base;
+    private final List<Product> products;
 
     /**
      * Constructor
@@ -29,6 +29,8 @@ public class JSON_Breaker {
     public JSON_Breaker(DataBase base) throws IOException {
 
         this.base = base;
+
+        products = base.getBase();
 
         String path = System.getenv("LAB");
         FileOperator.EnvExist(path);
@@ -77,9 +79,9 @@ public class JSON_Breaker {
      * @param it - Map of Product fields
      * @param operator - data operator
      * @return done Product Object ot Exception
-     * @throws Exception if something went wrong
+     * @throws RuntimeException if something went wrong
      */
-    private Product transform(HashMap<String, Object> it, DataOperator operator) throws Exception{
+    private Product transform(HashMap<String, Object> it, DataOperator operator) throws RuntimeException{
         Product product = new Product();
         product.setId(operator.StringToInt((String) it.get("id")));
         product.setName((String) it.get("name"));

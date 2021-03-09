@@ -1,7 +1,6 @@
 package com.company.commandPattern.commands;
 
 import com.company.commandPattern.Command;
-import com.company.exceptions.InfinityRecursionException;
 import com.company.exceptions.IsFileException;
 import com.company.utility.forCommands.FileOperator;
 import com.company.utility.forCommands.RequestsQueue;
@@ -16,10 +15,14 @@ import java.util.Scanner;
 /**
  * Command execute user's script
  */
-public class ExecuteScriptCommand implements Command { ///good
+public class ExecuteScriptCommand implements Command {
 
     private final DataBase base; //Queue
 
+    /**
+     * ExecuteScriptCommand Constructor
+     * @param base - queue
+     */
     public ExecuteScriptCommand(DataBase base){
         this.base = base;
     }
@@ -46,7 +49,7 @@ public class ExecuteScriptCommand implements Command { ///good
             while (requests.hasNext()) list.add(requests.next());
             queue.pushAll(list);
 
-            InfinityRecursionException.newRec();
+            base.getFields().newRec();
 
         } catch (FileDoesNotExistException e){
             System.out.println("Скрипт не сработал - файла не существует");

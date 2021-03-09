@@ -11,11 +11,11 @@ public class IncorrectDataException extends RuntimeException{
 
     public IncorrectDataException(String logs){
         this.logs = logs;
-        System.out.println("Ошибка данных..." + logs);
+        System.err.println("Ошибка данных..." + logs);
     }
     public IncorrectDataException(){
         this.logs = "";
-        System.out.println("Ошибка данных...");
+        System.err.println("Ошибка данных...");
     }
 
     @Override

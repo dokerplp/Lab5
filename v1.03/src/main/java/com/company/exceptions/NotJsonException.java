@@ -6,6 +6,6 @@ package com.company.exceptions;
 public class NotJsonException extends RuntimeException{
 
     public NotJsonException() {
-        System.out.println("Данный файл имеет недопустимое разрешение");
+        System.err.println("Данный файл имеет недопустимое разрешение");
     }
 }

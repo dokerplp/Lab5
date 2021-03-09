@@ -5,7 +5,7 @@ import com.company.commandPattern.Command;
 /**
  * Command types names of all commands and their clarifications
  */
-public class HelpCommand implements Command { //good
+public class HelpCommand implements Command {
 
     /**
      * Realization of this command

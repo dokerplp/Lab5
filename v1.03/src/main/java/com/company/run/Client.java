@@ -1,16 +1,16 @@
 package com.company.run;
 
-import com.company.Fields;
+import com.company.utility.forData.Fields;
 import com.company.commandPattern.CommandsOperator;
 import com.company.commandPattern.User;
 import com.company.data.Product;
-import com.company.exceptions.InfinityRecursionException;
 import com.company.utility.forCommands.RequestsQueue;
 import com.company.utility.forData.DataBase;
 import com.company.utility.forData.DataOperator;
 import com.company.utility.forData.DataProcessor;
 import com.company.utility.json.JSON_Breaker;
 
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -27,27 +27,22 @@ public class Client {
         RequestsQueue queue = new RequestsQueue(); //очередь из комманд
         Fields fields = new Fields(); //Общие поля класса
 
-        DataBase base = new DataBase(products, queue, fields); //База данных хранит коллекцию, очередь и общие переменные
         DataOperator data = new DataOperator(queue); //Утилита для получения данных
+        DataBase base = new DataBase(products, queue, fields, data); //База данных хранит коллекцию, очередь и общие переменные
 
         User user = new User(); //Юзер для паттерна
-        CommandsOperator operator = new CommandsOperator(user, base, data); //Ресивер для паттерна
-
-
-
-
-
+        CommandsOperator operator = new CommandsOperator(user, base); //Ресивер для паттерна
 
         try{
             new JSON_Breaker(base); //Класс для преобразования json в Обьект
             Collections.sort(products); //Сортировка полученных обьектов через Comparable
-        }catch (Exception e){
+        }catch (RuntimeException | IOException e){
             System.out.println("Не удалось загрузить коллекцию из файла");
         } //Загрузка данных из файла json
 
         while (true){
             queue.setStatus(true); //Очередью управляет человек
-            InfinityRecursionException.Putin(); //Обнулить Счетчик рекурсий
+            fields.Putin(); //Обнулить Счетчик рекурсий
             String push = null; //
             try{
                 push = data.getSTRING(); //Получить новую строку комманды от пользователя

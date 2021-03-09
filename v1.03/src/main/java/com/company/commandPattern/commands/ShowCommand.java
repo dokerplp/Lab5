@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Collection types all fields of each element
  */
-public class ShowCommand implements Command { //done //maybe //TESTED!
+public class ShowCommand implements Command {
 
     private final List<Product> products;
 
@@ -25,7 +25,7 @@ public class ShowCommand implements Command { //done //maybe //TESTED!
      * Realization of this command
      */
     private void ShowRealization(){
-        int i = 0;
+        int i = 0; //Product number
         for (Product product : products){
             i++;
             System.out.println(

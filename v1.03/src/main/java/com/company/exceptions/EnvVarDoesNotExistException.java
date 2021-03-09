@@ -6,7 +6,7 @@ package com.company.exceptions;
 public class EnvVarDoesNotExistException extends RuntimeException{
 
     public EnvVarDoesNotExistException(){
-        System.out.println("Переменной среды LAB не существует");
+        System.err.println("Переменной среды LAB не существует");
     }
 
 }

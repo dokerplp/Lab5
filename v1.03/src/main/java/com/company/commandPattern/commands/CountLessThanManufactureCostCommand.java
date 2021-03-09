@@ -11,20 +11,20 @@ import java.util.List;
 /**
  * Command counts amount of elements which manufacture cost is less than some number
  */
-public class CountLessThanManufactureCostCommand implements Command { //Good
+public class CountLessThanManufactureCostCommand implements Command {
 
-    private final List<Product> products; //Collection
-    private final DataOperator data; //Utility for operating data
+    private final List<Product> products;
+    private final DataOperator data;
     private float manufactureCost; //Argument
 
+
     /**
-     * AddIfMaxCommand Constructor
-     * @param base - collection
-     * @param data - Class to run Data
+     * CountLessThanManufactureCostCommand Constructor
+     * @param base - collection and data operator
      */
-    public CountLessThanManufactureCostCommand(DataBase base, DataOperator data) {
+    public CountLessThanManufactureCostCommand(DataBase base) {
         this.products = base.getBase();
-        this.data = data;
+        this.data = base.getOperator();
     }
 
     /**

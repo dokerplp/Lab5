@@ -10,10 +10,10 @@ import java.util.List;
 /**
  * Command create and add new element to collection
  */
-public class AddCommand implements Command { //Good
+public class AddCommand implements Command {
 
-    private final DataBase base; //For list
-    private final List<Product> products; //Add to collection
+    private final DataBase base;
+    private final List<Product> products;
 
     /**
      * AddCommand Constructor

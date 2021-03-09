@@ -13,20 +13,17 @@ import java.util.List;
  */
 public class CommandsOperator { //Receiver
 
-    private final User user;
-    private final DataBase base;
-    private final DataOperator data;
+    private final User user; //Pattern Invoker
+    private final DataBase base; //Pattern Receiver
 
     /**
-     * Constructor
-     * @param user - Invoker class
-     * @param base - Collection
-     * @param data - Class to run Data (needs for some commands)
+     * CommandOperator Constructor
+     * @param user - invoker
+     * @param base - base
      */
-    public CommandsOperator(User user, DataBase base, DataOperator data){
+    public CommandsOperator(User user, DataBase base){
         this.user = user;
         this.base = base;
-        this.data = data;
         SetCommands();
     }
 
@@ -39,17 +36,17 @@ public class CommandsOperator { //Receiver
         user.addCommand("add_if_max", new AddIfMaxCommand(base));
         user.addCommand("average_of_price", new AverageOfPriceCommand(base));
         user.addCommand("clear", new ClearCommand(base));
-        user.addCommand("count_by_manufacture_cost", new CountByManufactureCostCommand(base, data));
-        user.addCommand("count_less_than_manufacture_cost", new CountLessThanManufactureCostCommand(base, data));
+        user.addCommand("count_by_manufacture_cost", new CountByManufactureCostCommand(base));
+        user.addCommand("count_less_than_manufacture_cost", new CountLessThanManufactureCostCommand(base));
         user.addCommand("execute_script", new ExecuteScriptCommand(base));
         user.addCommand("exit", new ExitCommand());
         user.addCommand("info", new InfoCommand(base));
-        user.addCommand("remove_by_id", new RemoveByIdCommand(base, data));
-        user.addCommand("remove_greater", new RemoveGreaterCommand(base, data));
+        user.addCommand("remove_by_id", new RemoveByIdCommand(base));
+        user.addCommand("remove_greater", new RemoveGreaterCommand(base));
         user.addCommand("save", new SaveCommand(base));
         user.addCommand("show", new ShowCommand(base));
         user.addCommand("shuffle", new ShuffleCommand(base));
-        user.addCommand("update", new UpdateCommand(base, data));
+        user.addCommand("update", new UpdateCommand(base));
     }
 
     /**

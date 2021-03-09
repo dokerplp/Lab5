@@ -13,18 +13,18 @@ import java.util.List;
  */
 public class CountByManufactureCostCommand implements Command {
 
-    private final List<Product> products; //Collection
-    private final DataOperator data; //Utility for operating data
+    private final List<Product> products;
+    private final DataOperator data;
     private float manufactureCost; //Argument
 
+
     /**
-     * AddIfMaxCommand Constructor
-     * @param base - collection
-     * @param data - Class to run Data
+     * CountByManufactureCostCommand Constructor
+     * @param base - collection and data operator
      */
-    public CountByManufactureCostCommand(DataBase base, DataOperator data) {
+    public CountByManufactureCostCommand(DataBase base) {
         this.products = base.getBase();
-        this.data = data;
+        this.data = base.getOperator();
     }
 
     /**

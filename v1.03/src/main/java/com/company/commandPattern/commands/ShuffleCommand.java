@@ -10,9 +10,9 @@ import java.util.List;
 /**
  * Command shuffles collection
  */
-public class ShuffleCommand implements Command { //done //maybe //TESTED!
+public class ShuffleCommand implements Command {
 
-    private final List<Product> products;
+    private final List<Product> products; //Collection
 
     /**
      * AddCommand Constructor
