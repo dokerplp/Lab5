@@ -1,0 +1,94 @@
+[
+     {
+          "id": "48767",
+          "name": "ITMO",
+          "coordinates": {
+               "x": "13.01",
+               "y": "11"
+          },
+          "creationDate": "2021-03-02T12:16:53.701648+03:00[Europe/Moscow]",
+          "price": "50000",
+          "partNumber": "",
+          "manufactureCost": "34.9",
+          "unitOfMeasure": "Сантиметры",
+          "manufacturer": {
+               "id": "649440",
+               "name": "Politeh",
+               "employeesCount": "192",
+               "type": "ЗАО",
+               "address": {
+                    "street": "Polikek",
+                    "zipCode": "1213"
+               }
+          }
+     },
+     {
+          "id": "48768",
+          "name": "ITMO",
+          "coordinates": {
+               "x": "13.01",
+               "y": "11"
+          },
+          "creationDate": "2021-03-02T12:16:53.702076+03:00[Europe/Moscow]",
+          "price": "500",
+          "partNumber": "nulll",
+          "manufactureCost": "34.9",
+          "unitOfMeasure": "Сантиметры",
+          "manufacturer": {
+               "id": "649441",
+               "name": "Politeh",
+               "employeesCount": "192",
+               "type": "ЗАО",
+               "address": {
+                    "street": "Polikek",
+                    "zipCode": "1213"
+               }
+          }
+     },
+     {
+          "id": "48769",
+          "name": "Choco Pie",
+          "coordinates": {
+               "x": "13.7",
+               "y": "12"
+          },
+          "creationDate": "2021-03-02T21:07:12.042639+03:00[Europe/Moscow]",
+          "price": "500",
+          "partNumber": "ccb32",
+          "manufactureCost": "3244.0",
+          "unitOfMeasure": "Сантиметры",
+          "manufacturer": {
+               "id": "649442",
+               "name": "Lotte",
+               "employeesCount": "3256",
+               "type": "Общественная",
+               "address": {
+                    "street": "Sweet",
+                    "zipCode": "34255"
+               }
+          }
+     },
+     {
+          "id": "48770",
+          "name": "Twix",
+          "coordinates": {
+               "x": "14.0",
+               "y": "1"
+          },
+          "creationDate": "2021-03-02T21:08:03.815836+03:00[Europe/Moscow]",
+          "price": "80",
+          "partNumber": "",
+          "manufactureCost": "50.0",
+          "unitOfMeasure": "Метры",
+          "manufacturer": {
+               "id": "649443",
+               "name": "Mars",
+               "employeesCount": "224",
+               "type": "Общественная",
+               "address": {
+                    "street": "Sugar",
+                    "zipCode": "fwfw34"
+               }
+          }
+     }
+]
