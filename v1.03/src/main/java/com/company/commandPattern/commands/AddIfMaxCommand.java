@@ -44,7 +44,7 @@ public class AddIfMaxCommand implements Command {
             System.out.println("\nПродукт создан!");
         }
         else {
-            System.out.println("\nНовый продукт не превышает максимального, создание отменено!");
+            System.err.println("\nНовый продукт не превышает максимального, создание отменено!");
         }
 
     }
@@ -54,7 +54,7 @@ public class AddIfMaxCommand implements Command {
      */
     @Override
     public void execute(String Argument) {
-        if (Argument != null) System.out.println("Эта комманда не требует никаих аргуметов так-то :)");
+        if (Argument != null) System.err.println("Эта комманда не требует никаих аргуметов так-то :)");
         AddIfMaxRealization();
     }
 }

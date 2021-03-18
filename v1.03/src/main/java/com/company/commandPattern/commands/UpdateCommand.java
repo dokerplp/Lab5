@@ -83,7 +83,7 @@ public class UpdateCommand implements Command { //done //maybe //TESTED!
      */
     @Override
     public void execute(String Argument) {
-        if (Argument == null) System.out.println("Не хватает аргумета (Целое число)");
+        if (Argument == null) System.err.println("Не хватает аргумета (Целое число)");
         else {
             try {
                 int id = data.StringToInt(Argument);
@@ -93,7 +93,7 @@ public class UpdateCommand implements Command { //done //maybe //TESTED!
                     }
                 }
                 if (update != null) UpdateRealization();
-                else System.out.println("Такого id не существует!");
+                else System.err.println("Такого id не существует!");
             }catch (IncorrectDataException e){
                 System.out.println("Введите целое число");
             }

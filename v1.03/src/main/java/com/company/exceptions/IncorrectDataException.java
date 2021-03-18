@@ -11,7 +11,7 @@ public class IncorrectDataException extends RuntimeException{
 
     public IncorrectDataException(String logs){
         this.logs = logs;
-        System.err.println("Ошибка данных..." + logs);
+        System.err.println("Ошибка данных... " + logs);
     }
     public IncorrectDataException(){
         this.logs = "";
@@ -20,6 +20,6 @@ public class IncorrectDataException extends RuntimeException{
 
     @Override
     public String toString(){
-        return "Ошибка данных...\n" + logs;
+        return "Ошибка данных... " + logs;
     }
 }

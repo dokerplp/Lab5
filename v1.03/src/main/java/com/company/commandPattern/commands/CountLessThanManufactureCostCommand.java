@@ -43,7 +43,7 @@ public class CountLessThanManufactureCostCommand implements Command {
      */
     @Override
     public void execute(String Argument) {
-        if (Argument == null) System.out.println("Не хватает аргумета (Дробное число)");
+        if (Argument == null) System.err.println("Не хватает аргумета (Дробное число)");
         else {
             try {
                 manufactureCost = data.StringToFloat(Argument);

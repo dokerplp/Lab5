@@ -1,6 +1,7 @@
 package com.company.commandPattern.commands;
 
 import com.company.commandPattern.Command;
+import com.company.exceptions.InfinityRecursionException;
 import com.company.exceptions.IsFileException;
 import com.company.utility.forCommands.FileOperator;
 import com.company.utility.forCommands.RequestsQueue;
@@ -46,19 +47,22 @@ public class ExecuteScriptCommand implements Command {
             Scanner requests = new Scanner(script); //Check script
             List<String> list = new ArrayList<>(); //List of commands
 
-            while (requests.hasNext()) list.add(requests.next());
+            while (requests.hasNext()) list.add(requests.nextLine());
             queue.pushAll(list);
 
             base.getFields().newRec();
 
         } catch (FileDoesNotExistException e){
-            System.out.println("Скрипт не сработал - файла не существует");
+            System.err.println("Скрипт не сработал - файла не существует");
         } catch (IsFileException e){
-            System.out.println("Скрипт не сработал - путь ведет к дириктории, а не файлу");
+            System.err.println("Скрипт не сработал - путь ведет к дириктории, а не файлу");
         } catch (CantReadException e){
-            System.out.println("Скрипт не сработал - нет прав на чтение файла");
+            System.err.println("Скрипт не сработал - нет прав на чтение файла");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        } catch (InfinityRecursionException e){
+            System.err.println("Глубокая рекурсия");
+            queue.clearAll();
         }
     }
 
@@ -67,7 +71,7 @@ public class ExecuteScriptCommand implements Command {
      */
     @Override
     public void execute(String Argument) {
-        if (Argument == null) System.out.println("Не хватает аргумета (Адрес скрипта)");
+        if (Argument == null) System.err.println("Не хватает аргумета (Адрес скрипта)");
         else ExecuteScriptRealization(Argument);
     }
 }

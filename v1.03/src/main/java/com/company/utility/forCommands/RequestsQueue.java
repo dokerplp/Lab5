@@ -30,6 +30,13 @@ public class RequestsQueue {
     }
 
     /**
+     * Clear queue
+     */
+    public void clearAll(){
+        request.clear();
+    }
+
+    /**
      * Take one element from queue
      * @return element
      */

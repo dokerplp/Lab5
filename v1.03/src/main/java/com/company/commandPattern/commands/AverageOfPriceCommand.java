@@ -34,7 +34,7 @@ public class AverageOfPriceCommand implements Command {
         if (Counter != 0) {
             System.out.println("Средняя цена: " + Average/Counter);
         }
-        else System.out.println("Еще не существет ни одного продукта!");
+        else System.err.println("Еще не существет ни одного продукта!");
     }
 
     /**
@@ -42,7 +42,7 @@ public class AverageOfPriceCommand implements Command {
      */
     @Override
     public void execute(String Argument) {
-        if (Argument != null) System.out.println("Эта комманда не требует никаих аргуметов так-то :)");
+        if (Argument != null) System.err.println("Эта комманда не требует никаих аргуметов так-то :)");
         AverageOfPriceRealization();
     }
 }

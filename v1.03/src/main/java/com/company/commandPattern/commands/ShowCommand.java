@@ -57,7 +57,7 @@ public class ShowCommand implements Command {
      */
     @Override
     public void execute(String Argument) {
-        if (Argument != null) System.out.println("Эта комманда не требует никаих аргуметов так-то :)");
+        if (Argument != null) System.err.println("Эта комманда не требует никаих аргуметов так-то :)");
         ShowRealization();
     }
 

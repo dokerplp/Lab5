@@ -30,7 +30,7 @@ public class User { //Invoker
     public void execute(String Name, String Argument){
         Command command = commandMap.get(Name);
         if (command == null){
-            System.out.println("Такой комманды не существует");
+            System.err.println("Такой комманды не существует");
         }
         else {
             command.execute(Argument);

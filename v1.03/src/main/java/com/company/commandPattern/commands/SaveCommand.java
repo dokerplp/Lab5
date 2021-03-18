@@ -65,7 +65,7 @@ public class SaveCommand implements Command {
             FileOperator.Writable(DJEYSON);
             return path;
         } catch (Exception e) {
-            System.out.println("Возникли проблемы с исходным файлом\nНовый файл создан и сохранен в домашней дириктории");;
+            System.err.println("Возникли проблемы с исходным файлом\nНовый файл создан и сохранен в домашней дириктории");;
         }
         return null;
     }
@@ -75,13 +75,13 @@ public class SaveCommand implements Command {
      */
     @Override
     public void execute(String Argument) {
-        if (Argument != null) System.out.println("Эта комманда не требует никаих аргуметов так-то :)");
+        if (Argument != null) System.err.println("Эта комманда не требует никаих аргуметов так-то :)");
         try{
             SaveRealization();
             base.getFields().setLastSave();
             System.out.println("Сохранено!");
         } catch (Exception e) {
-            System.out.println("Сохранение не состоялось");
+            System.err.println("Сохранение не состоялось");
         }
     }
 }

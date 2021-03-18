@@ -40,7 +40,7 @@ public class RemoveGreaterCommand implements Command {
                 trigger = true;
             }
         }
-        if(!trigger)System.out.println("Такого элемента не существует");
+        if(!trigger)System.err.println("Такого элемента не существует");
     }
 
     /**
@@ -48,7 +48,7 @@ public class RemoveGreaterCommand implements Command {
      */
     @Override
     public void execute(String Argument) {
-        if (Argument == null) System.out.println("Не хватает аргумета (Целое число)");
+        if (Argument == null) System.err.println("Не хватает аргумета (Целое число)");
         else {
             try {
                 price = data.StringToInt(Argument);

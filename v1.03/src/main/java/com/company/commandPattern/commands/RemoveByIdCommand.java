@@ -50,12 +50,12 @@ public class RemoveByIdCommand implements Command {
      */
     @Override
     public void execute(String Argument) {
-        if (Argument == null) System.out.println("Не хватает аргумета (Дробное число)");
+        if (Argument == null) System.err.println("Не хватает аргумета (Дробное число)");
         else {
             try {
                 id = data.StringToInt(Argument);
                 if (DataChecker.AboveZeroCheck(id)) RemoveByIdRealization();
-                else System.out.println("Некорректный id");
+                else System.err.println("Некорректный id");
             } catch (IncorrectDataException e){
                 System.out.println("Введите целое число");
             }
