@@ -1,0 +1,8 @@
+com.company.commandPattern
+com.company.commandPattern.commands
+com.company.data
+com.company.exceptions
+com.company.run
+com.company.utility.forCommands
+com.company.utility.forData
+com.company.utility.json

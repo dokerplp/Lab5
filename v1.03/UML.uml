@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.company.commandPattern.commands.AddCommand</OriginalElement>
+  <nodes>
+    <node x="713.0" y="340.0">com.company.exceptions.NotJsonException</node>
+    <node x="990.0000000000001" y="555.0">com.company.commandPattern.commands.AverageOfPriceCommand</node>
+    <node x="1169.0" y="630.0">com.company.utility.json.JSON_Builder</node>
+    <node x="520.0" y="555.0">com.company.commandPattern.commands.ShowCommand</node>
+    <node x="1531.5" y="415.0">com.company.commandPattern.Command</node>
+    <node x="1109.0" y="80.0">java.lang.Enum</node>
+    <node x="2374.0" y="555.0">com.company.commandPattern.commands.ExecuteScriptCommand</node>
+    <node x="1222.0" y="555.0">com.company.commandPattern.commands.AddCommand</node>
+    <node x="1868.0" y="160.0">com.company.utility.forCommands.CreateNewProduct</node>
+    <node x="0.0" y="630.0">com.company.commandPattern.CommandsOperator</node>
+    <node x="413.0" y="630.0">com.company.utility.forData.DataProcessor</node>
+    <node x="1714.0" y="630.0">com.company.utility.forData.DataBase</node>
+    <node x="1883.5" y="0.0">com.company.utility.forData.DataOperator</node>
+    <node x="225.0" y="555.0">com.company.commandPattern.commands.CountByManufactureCostCommand</node>
+    <node x="473.0" y="340.0">com.company.exceptions.IncorrectDataException</node>
+    <node x="1554.0" y="555.0">com.company.commandPattern.commands.CountLessThanManufactureCostCommand</node>
+    <node x="838.5" y="160.0">java.lang.Exception</node>
+    <node x="1107.0" y="340.0">com.company.exceptions.EnvVarDoesNotExistException</node>
+    <node x="862.5" y="0.0">java.io.Serializable</node>
+    <node x="1896.0" y="555.0">com.company.commandPattern.commands.UpdateCommand</node>
+    <node x="983.25" y="160.0">com.company.data.UnitOfMeasure</node>
+    <node x="1368.0" y="555.0">com.company.commandPattern.commands.AddIfMaxCommand</node>
+    <node x="982.0" y="630.0">com.company.data.Organization</node>
+    <node x="674.0000000000001" y="555.0">com.company.commandPattern.commands.ClearCommand</node>
+    <node x="1386.0" y="340.0">com.company.exceptions.InfinityRecursionException</node>
+    <node x="838.5" y="80.0">java.lang.Throwable</node>
+    <node x="2298.0" y="630.0">com.company.commandPattern.User</node>
+    <node x="1870.0" y="630.0">com.company.data.Address</node>
+    <node x="2931.0" y="555.0">com.company.commandPattern.commands.RemoveByIdCommand</node>
+    <node x="218.0" y="630.0">com.company.utility.forCommands.RequestsQueue</node>
+    <node x="1871.5" y="80.0">com.company.utility.forCommands.ProductOperator</node>
+    <node x="2158.0" y="630.0">com.company.utility.forData.Fields</node>
+    <node x="1535.0" y="630.0">com.company.data.Coordinates</node>
+    <node x="906.0" y="340.0">com.company.exceptions.CantReadException</node>
+    <node x="209.0" y="340.0">com.company.exceptions.FileDoesNotExistException</node>
+    <node x="1356.0" y="630.0">com.company.utility.forData.DataChecker</node>
+    <node x="2777.0" y="555.0">com.company.commandPattern.commands.ExitCommand</node>
+    <node x="1657.0" y="340.0">com.company.exceptions.IsFileException</node>
+    <node x="811.5" y="240.0">java.lang.RuntimeException</node>
+    <node x="2599.0" y="555.0">com.company.commandPattern.commands.ShuffleCommand</node>
+    <node x="1153.25" y="160.0">com.company.data.OrganizationType</node>
+    <node x="795.0" y="630.0">com.company.utility.json.JSON_Breaker</node>
+    <node x="1089.5" y="0.0">java.lang.constant.Constable</node>
+    <node x="2220.0" y="555.0">com.company.commandPattern.commands.InfoCommand</node>
+    <node x="836.0000000000001" y="555.0">com.company.commandPattern.commands.SaveCommand</node>
+    <node x="2066.0" y="555.0">com.company.commandPattern.commands.HelpCommand</node>
+    <node x="0.0" y="340.0">com.company.exceptions.CantWriteException</node>
+    <node x="0.0" y="555.0">com.company.commandPattern.commands.RemoveGreaterCommand</node>
+    <node x="1228.5" y="0.0">java.lang.Comparable</node>
+    <node x="608.0" y="630.0">com.company.utility.forCommands.FileOperator</node>
+    <node x="1271.5" y="80.0">com.company.data.Product</node>
+    <node x="2018.0" y="630.0">com.company.run.Client</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.company.data.Product" target="java.lang.Comparable">
+      <point x="0.0" y="-15.0" />
+      <point x="31.5" y="15.0" />
+    </edge>
+    <edge source="com.company.commandPattern.commands.InfoCommand" target="com.company.commandPattern.Command">
+      <point x="0.0" y="-15.0" />
+      <point x="2287.0" y="505.0" />
+      <point x="1605.53125" y="505.0" />
+      <point x="22.53125" y="15.0" />
+    </edge>
+    <edge source="com.company.commandPattern.commands.ShowCommand" target="com.company.commandPattern.Command">
+      <point x="0.0" y="-15.0" />
+      <point x="587.0" y="485.0" />
+      <point x="1547.59375" y="485.0" />
+      <point x="-35.40625" y="15.0" />
+    </edge>
+    <edge source="com.company.exceptions.NotJsonException" target="java.lang.RuntimeException">
+      <point x="0.0" y="-15.0" />
+      <point x="799.5" y="320.0" />
+      <point x="887.1875" y="320.0" />
+      <point x="-10.8125" y="15.0" />
+    </edge>
+    <edge source="java.lang.Throwable" target="java.io.Serializable">
+      <point x="0.0" y="-15.0" />
+      <point x="-35.5" y="15.0" />
+    </edge>
+    <edge source="com.company.commandPattern.commands.AverageOfPriceCommand" target="com.company.commandPattern.Command">
+      <point x="0.0" y="-15.0" />
+      <point x="1096.0" y="515.0" />
+      <point x="1566.90625" y="515.0" />
+      <point x="-16.09375" y="15.0" />
+    </edge>
+    <edge source="com.company.commandPattern.commands.RemoveByIdCommand" target="com.company.commandPattern.Command">
+      <point x="0.0" y="-15.0" />
+      <point x="3021.5" y="465.0" />
+      <point x="1631.28125" y="465.0" />
+      <point x="48.28125" y="15.0" />
+    </edge>
+    <edge source="com.company.exceptions.IncorrectDataException" target="java.lang.RuntimeException">
+      <point x="0.0" y="-15.0" />
+      <point x="583.0" y="310.0" />
+      <point x="865.5625" y="310.0" />
+      <point x="-32.4375" y="15.0" />
+    </edge>
+    <edge source="com.company.commandPattern.commands.UpdateCommand" target="com.company.commandPattern.Command">
+      <point x="0.0" y="-15.0" />
+      <point x="1971.0" y="525.0" />
+      <point x="1592.65625" y="525.0" />
+      <point x="9.65625" y="15.0" />
+    </edge>
+    <edge source="com.company.commandPattern.commands.ClearCommand" target="com.company.commandPattern.Command">
+      <point x="0.0" y="-15.0" />
+      <point x="745.0000000000001" y="495.0" />
+      <point x="1554.03125" y="495.0" />
+      <point x="-28.96875" y="15.0" />
+    </edge>
+    <edge source="com.company.exceptions.IsFileException" target="java.lang.RuntimeException">
+      <point x="0.0" y="-15.0" />
+      <point x="1740.0" y="290.0" />
+      <point x="973.6875" y="290.0" />
+      <point x="75.6875" y="15.0" />
+    </edge>
+    <edge source="java.lang.RuntimeException" target="java.lang.Exception">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="java.lang.Exception" target="java.lang.Throwable">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="java.lang.Enum" target="java.io.Serializable">
+      <point x="-26.666666666666742" y="-15.0" />
+      <point x="1122.3333333333333" y="55.0" />
+      <point x="969.0" y="55.0" />
+      <point x="35.5" y="15.0" />
+    </edge>
+    <edge source="com.company.exceptions.FileDoesNotExistException" target="java.lang.RuntimeException">
+      <point x="0.0" y="-15.0" />
+      <point x="331.0" y="300.0" />
+      <point x="843.9375" y="300.0" />
+      <point x="-54.0625" y="15.0" />
+    </edge>
+    <edge source="com.company.exceptions.CantWriteException" target="java.lang.RuntimeException">
+      <point x="0.0" y="-15.0" />
+      <point x="94.5" y="290.0" />
+      <point x="822.3125" y="290.0" />
+      <point x="-75.6875" y="15.0" />
+    </edge>
+    <edge source="com.company.exceptions.CantReadException" target="java.lang.RuntimeException">
+      <point x="0.0" y="-15.0" />
+      <point x="996.5" y="320.0" />
+      <point x="908.8125" y="320.0" />
+      <point x="10.8125" y="15.0" />
+    </edge>
+    <edge source="com.company.commandPattern.commands.AddIfMaxCommand" target="com.company.commandPattern.Command">
+      <point x="0.0" y="-15.0" />
+      <point x="1451.0" y="535.0" />
+      <point x="1579.78125" y="535.0" />
+      <point x="-3.21875" y="15.0" />
+    </edge>
+    <edge source="java.lang.Enum" target="java.lang.constant.Constable">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="java.lang.Enum" target="java.lang.Comparable">
+      <point x="26.666666666666742" y="-15.0" />
+      <point x="1175.6666666666667" y="55.0" />
+      <point x="1260.0" y="55.0" />
+      <point x="-31.5" y="15.0" />
+    </edge>
+    <edge source="com.company.commandPattern.commands.CountByManufactureCostCommand" target="com.company.commandPattern.Command">
+      <point x="0.0" y="-15.0" />
+      <point x="362.5" y="475.0" />
+      <point x="1541.15625" y="475.0" />
+      <point x="-41.84375" y="15.0" />
+    </edge>
+    <edge source="com.company.commandPattern.commands.HelpCommand" target="com.company.commandPattern.Command">
+      <point x="0.0" y="-15.0" />
+      <point x="2133.0" y="515.0" />
+      <point x="1599.09375" y="515.0" />
+      <point x="16.09375" y="15.0" />
+    </edge>
+    <edge source="com.company.exceptions.InfinityRecursionException" target="java.lang.RuntimeException">
+      <point x="0.0" y="-15.0" />
+      <point x="1511.5" y="300.0" />
+      <point x="952.0625" y="300.0" />
+      <point x="54.0625" y="15.0" />
+    </edge>
+    <edge source="com.company.data.OrganizationType" target="java.lang.Enum">
+      <point x="0.0" y="-15.0" />
+      <point x="1239.75" y="135.0" />
+      <point x="1169.0" y="135.0" />
+      <point x="20.0" y="15.0" />
+    </edge>
+    <edge source="com.company.commandPattern.commands.ShuffleCommand" target="com.company.commandPattern.Command">
+      <point x="0.0" y="-15.0" />
+      <point x="2678.0" y="485.0" />
+      <point x="1618.40625" y="485.0" />
+      <point x="35.40625" y="15.0" />
+    </edge>
+    <edge source="com.company.commandPattern.commands.SaveCommand" target="com.company.commandPattern.Command">
+      <point x="0.0" y="-15.0" />
+      <point x="903.0000000000001" y="505.0" />
+      <point x="1560.46875" y="505.0" />
+      <point x="-22.53125" y="15.0" />
+    </edge>
+    <edge source="com.company.data.UnitOfMeasure" target="java.lang.Enum">
+      <point x="0.0" y="-15.0" />
+      <point x="1058.25" y="135.0" />
+      <point x="1129.0" y="135.0" />
+      <point x="-20.0" y="15.0" />
+    </edge>
+    <edge source="com.company.commandPattern.commands.AddCommand" target="com.company.commandPattern.Command">
+      <point x="0.0" y="-15.0" />
+      <point x="1285.0" y="525.0" />
+      <point x="1573.34375" y="525.0" />
+      <point x="-9.65625" y="15.0" />
+    </edge>
+    <edge source="com.company.commandPattern.commands.CountLessThanManufactureCostCommand" target="com.company.commandPattern.Command">
+      <point x="0.0" y="-15.0" />
+      <point x="1715.0" y="535.0" />
+      <point x="1586.21875" y="535.0" />
+      <point x="3.21875" y="15.0" />
+    </edge>
+    <edge source="com.company.commandPattern.commands.ExitCommand" target="com.company.commandPattern.Command">
+      <point x="0.0" y="-15.0" />
+      <point x="2844.0" y="475.0" />
+      <point x="1624.84375" y="475.0" />
+      <point x="41.84375" y="15.0" />
+    </edge>
+    <edge source="com.company.commandPattern.commands.ExecuteScriptCommand" target="com.company.commandPattern.Command">
+      <point x="0.0" y="-15.0" />
+      <point x="2476.5" y="495.0" />
+      <point x="1611.96875" y="495.0" />
+      <point x="28.96875" y="15.0" />
+    </edge>
+    <edge source="com.company.utility.forCommands.ProductOperator" target="com.company.utility.forData.DataOperator">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.company.commandPattern.commands.RemoveGreaterCommand" target="com.company.commandPattern.Command">
+      <point x="0.0" y="-15.0" />
+      <point x="102.5" y="465.0" />
+      <point x="1534.71875" y="465.0" />
+      <point x="-48.28125" y="15.0" />
+    </edge>
+    <edge source="com.company.exceptions.EnvVarDoesNotExistException" target="java.lang.RuntimeException">
+      <point x="0.0" y="-15.0" />
+      <point x="1236.5" y="310.0" />
+      <point x="930.4375" y="310.0" />
+      <point x="32.4375" y="15.0" />
+    </edge>
+    <edge source="com.company.utility.forCommands.CreateNewProduct" target="com.company.utility.forCommands.ProductOperator">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.635751697124226" x="3041.398804241204" y="500.64351774010686" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>public</VISIBILITY>
+</Diagram>
+

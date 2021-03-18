@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.company.commandPattern"},{"l":"com.company.commandPattern.commands"},{"l":"com.company.data"},{"l":"com.company.exceptions"},{"l":"com.company.run"},{"l":"com.company.utility.forCommands"},{"l":"com.company.utility.forData"},{"l":"com.company.utility.json"}]
