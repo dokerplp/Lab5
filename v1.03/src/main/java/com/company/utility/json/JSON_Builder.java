@@ -34,10 +34,15 @@ public class JSON_Builder {
         file += o + o + o + "\"name\": \"" + product.getManufacturer().getName() + "\",\n";
         file += o + o + o + "\"employeesCount\": \"" + product.getManufacturer().getEmployeesCount() + "\",\n";
         file += o + o + o + "\"type\": \"" + product.getManufacturer().getType().getType() + "\",\n";
-        file += o + o + o + "\"address\": {\n";
-        file += o + o + o + o + "\"street\": \"" + product.getManufacturer().getOfficialAddress().getStreet() + "\",\n";
-        file += o + o + o + o + "\"zipCode\": \"" + product.getManufacturer().getOfficialAddress().getZipCode() + "\"\n";
-        file += o + o + o + "}\n";
+        if (product.getManufacturer().getOfficialAddress() == null) {
+            file += o + o + o + "\"address\": {}\n";
+        }
+        else {
+            file += o + o + o + "\"address\": {\n";
+            file += o + o + o + o + "\"street\": \"" + product.getManufacturer().getOfficialAddress().getStreet() + "\",\n";
+            file += o + o + o + o + "\"zipCode\": \"" + product.getManufacturer().getOfficialAddress().getZipCode() + "\"\n";
+            file += o + o + o + "}\n";
+        }
         file += o + o + "}\n";
         file += o + "}";
 

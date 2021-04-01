@@ -65,7 +65,7 @@ public class SaveCommand implements Command {
             FileOperator.Writable(DJEYSON);
             return path;
         } catch (Exception e) {
-            System.err.println("Возникли проблемы с исходным файлом\nНовый файл создан и сохранен в домашней дириктории");;
+            System.err.println("Возникли проблемы с исходным файлом");;
         }
         return null;
     }

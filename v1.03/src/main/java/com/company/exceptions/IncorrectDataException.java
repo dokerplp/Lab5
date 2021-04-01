@@ -1,6 +1,5 @@
 package com.company.exceptions;
 
-import com.company.utility.forCommands.RequestsQueue;
 
 /**
  * Throws if you entered wrong data

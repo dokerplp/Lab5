@@ -103,11 +103,13 @@ public class JSON_Breaker {
         organization.setType(OrganizationType.reverse((String) or.get("type")));
         Address address = new Address();
         HashMap<String, Object> ad = (HashMap) or.get("address");
-        address.setStreet((String) ad.get("street"));
-        address.setZipCode((String) ad.get("zipCode"));
+        if (ad.size() == 0) address = null;
+        else {
+            address.setStreet((String) ad.get("street"));
+            address.setZipCode((String) ad.get("zipCode"));
+        }
         organization.setOfficialAddress(address);
         product.setManufacturer(organization);
-
         return product;
     }
 

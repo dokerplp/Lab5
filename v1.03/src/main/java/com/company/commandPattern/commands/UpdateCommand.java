@@ -60,10 +60,16 @@ public class UpdateCommand implements Command { //done //maybe //TESTED!
         if (Up()) createNewProduct.setEcount();
         if (trigger) System.out.println(now + "\"Тип компании\": " + update.getManufacturer().getType());
         if (Up()) createNewProduct.setType();
-        if (trigger) System.out.println(now + "\"Улица\": " + update.getManufacturer().getOfficialAddress().getStreet());
-        if (Up()) createNewProduct.setName();
-        if (trigger) System.out.println(now + "\"Почтовый код\": " + update.getManufacturer().getOfficialAddress().getZipCode());
-        if (Up()) createNewProduct.setZip();
+        if (trigger) System.out.println("\"Адрес\"");
+        if (Up()) {
+            if (createNewProduct.Null()) update.getManufacturer().setOfficialAddress(null);
+            else {
+                if (trigger) System.out.println(now + "\"Улица\": " + update.getManufacturer().getOfficialAddress().getStreet());
+                if (Up()) createNewProduct.setName();
+                if (trigger) System.out.println(now + "\"Почтовый код\": " + update.getManufacturer().getOfficialAddress().getZipCode());
+                if (Up()) createNewProduct.setZip();
+            }
+        }
 
         System.out.println("\nИзменения сохранены!");
     }

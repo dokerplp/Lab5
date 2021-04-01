@@ -29,7 +29,7 @@ public class ShowCommand implements Command {
         for (Product product : products){
             i++;
             System.out.println(
-                    "Продукт номер " + i + "\n" +
+                            "Продукт номер " + i + "\n" +
                             "ID продукта: " + product.getId() + "\n" +
                             "Название продукта: " + product.getName() + "\n" +
                             "Координаты: " + "\n" +
@@ -44,11 +44,13 @@ public class ShowCommand implements Command {
                             "     ID компании: " + product.getManufacturer().getId() + "\n" +
                             "     Название компании: " + product.getManufacturer().getName() + "\n" +
                             "     Количество работников: " + product.getManufacturer().getEmployeesCount()+ "\n" +
-                            "     Тип компании: " + product.getManufacturer().getType().getType() + "\n" +
-                            "     Адрес: " + "\n" +
-                            "          Улица: " + product.getManufacturer().getOfficialAddress().getStreet() + "\n" +
-                            "          Почтовый индекс: " + product.getManufacturer().getOfficialAddress().getZipCode() + "\n"
+                            "     Тип компании: " + product.getManufacturer().getType().getType()
             );
+            if (product.getManufacturer().getOfficialAddress() == null) System.out.println("     Адрес: null \n");
+            else System.out.println(
+                            "     Адрес: \n" +
+                            "          Улица: " + product.getManufacturer().getOfficialAddress().getStreet() + "\n" +
+                            "          Почтовый индекс: " + product.getManufacturer().getOfficialAddress().getZipCode() + "\n");
         }
     }
 

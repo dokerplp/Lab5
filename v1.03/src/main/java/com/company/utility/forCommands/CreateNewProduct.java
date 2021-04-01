@@ -15,7 +15,7 @@ public class CreateNewProduct extends ProductOperator {
     private final Product product;
     private final Coordinates coordinates = new Coordinates();
     private final Organization organization = new Organization();
-    private final Address address = new Address();
+    private Address address = new Address();
     private final DataBase base;
 
 
@@ -218,6 +218,12 @@ public class CreateNewProduct extends ProductOperator {
         }
     }
 
+    public boolean Null(){
+        if (base.getQueue().isStatus()) System.out.println("Желаете ввести адрес? Пустая строка - нет, любое поле - да");
+        String ans = base.getOperator().getSTRING();
+        return ans == null;
+    }
+
     /**
      * Run all recursive methods
      * @return done Product object
@@ -235,9 +241,12 @@ public class CreateNewProduct extends ProductOperator {
         setOrgName();
         setEcount();
         setType();
-        if (base.getQueue().isStatus()) System.out.println("     Адрес: ");
-        setStreet();
-        setZip();
+        if (!Null()) {
+            if (base.getQueue().isStatus()) System.out.println("     Адрес: ");
+            setStreet();
+            setZip();
+        }
+        else address = null;
 
         product.setCoordinates(coordinates);
         organization.setOfficialAddress(address);
