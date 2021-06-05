@@ -1,5 +1,7 @@
 # Lab5 #
 
+Option: 311769
+
 App executing user commands for working with a collection of objects
 
 ## Task ##
@@ -92,61 +94,3 @@ App executing user commands for working with a collection of objects
         GOVERNMENT,
         PRIVATE_LIMITED_COMPANY;
     }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
